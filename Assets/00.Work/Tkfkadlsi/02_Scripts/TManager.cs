@@ -1,11 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
+
+public enum GameState
+{
+    Start,
+    Set,
+    SelectPiece,
+    MovePiece,
+    EnemyTurn,
+}
 
 public class TMananger : MonoBehaviour
 {
     [Header("Public")]
-    public Dictionary<Vector2, GameObject> TileDic = new Dictionary<Vector2, GameObject>();
+    [HideInInspector] public List<GameObject> WaitPieces = new List<GameObject>();
+    public Dictionary<Vector2, TileScript> Pos2Tile = new Dictionary<Vector2, TileScript>();
+    public Dictionary<GameObject, TileScript> Obj2Tile = new Dictionary<GameObject, TileScript>();
+    public GameState CurrnetState;
+    public float tileScale = 1.4f;
+    public Vector2 minPos;
+    public Vector2 maxPos;
 
     [Header("SerializeField")]
     [SerializeField] private int tileSize;
@@ -13,8 +29,16 @@ public class TMananger : MonoBehaviour
     [SerializeField] private Transform tilesParent;
     [SerializeField] private Color tileColor1;
     [SerializeField] private Color tileColor2;
+    [SerializeField] private List<GameObject> pieces = new List<GameObject>();
 
     public static TMananger instance;
+
+    public GameObject GetPiece(int id)
+    {
+        GameObject newPiece = Instantiate(pieces[id]);
+        newPiece.SetActive(false);
+        return newPiece;
+    }
 
     private void Awake()
     {
@@ -27,6 +51,7 @@ public class TMananger : MonoBehaviour
         GameObject newTile;
         SpriteRenderer spriteRenderer;
         Color tileColor = tileColor1;
+        CurrnetState = GameState.Start;
 
         float x = 1, y = 1;
         float ix = 1, iy = 1;
@@ -41,14 +66,16 @@ public class TMananger : MonoBehaviour
             x = tileSize / -2;
             y = tileSize / -2;
         }
-
+        minPos = new Vector2(x, y);
+        maxPos = -minPos;
         for (int i = 1; i <= tileSize; i++)
         {
             for (int j = 1; j <= tileSize; j++)
             {
                 newTile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
                 newTile.transform.parent = tilesParent;
-                TileDic.Add(new Vector2(ix, iy), newTile);
+                Pos2Tile.Add(new Vector2(ix, iy), newTile.GetComponent<TileScript>());
+                Obj2Tile.Add(newTile, newTile.GetComponent<TileScript>());
                 spriteRenderer = newTile.GetComponent<SpriteRenderer>();
                 if(tileColor == tileColor1)
                 {
@@ -69,6 +96,25 @@ public class TMananger : MonoBehaviour
             y -= tileSize;
         }
 
-        tilesParent.localScale = new Vector3(1.5f, 1.5f);
+        for(int i = 0; i < 3; i++)
+        {
+            WaitPieces.Add(GetPiece(0));
+        }
+        tilesParent.localScale = new Vector3(tileScale, tileScale);
+        minPos *= tileScale;
+        maxPos *= tileScale;
+        CurrnetState = GameState.Set;
+        StartCoroutine(SettingPieces());
+    }
+
+    private IEnumerator SettingPieces()
+    {
+        while(WaitPieces.Count > 0)
+        {
+            yield return new WaitUntil(()=>Input.GetMouseButtonDown(0));
+        }
+
+        CurrnetState = GameState.SelectPiece;
+        Debug.Log(0);
     }
 }
