@@ -49,6 +49,9 @@ TagManager:
   - name: Pieces
     uniqueID: 2849958837
     locked: 0
+  - name: Enemy
+    uniqueID: 2150357545
+    locked: 0
   - name: MovePoint
     uniqueID: 629165115
     locked: 0

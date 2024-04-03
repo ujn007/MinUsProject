@@ -15,6 +15,7 @@ public class TileScript : MonoBehaviour, IPointerClickHandler
             OnThisTileObject.transform.position = transform.position;
             OnThisTileObject.SetActive(true);
             TMananger.instance.WaitPieces.Remove(OnThisTileObject);
+            EnemySpawnManager.Instance.TileList.Remove(transform);
         }
     }
 }
