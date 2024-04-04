@@ -46,9 +46,9 @@ TagManager:
   - name: Tile
     uniqueID: 2825508667
     locked: 0
-  - name: Pieces
-    uniqueID: 2849958837
-    locked: 0
   - name: MovePoint
     uniqueID: 629165115
+    locked: 0
+  - name: Pieces
+    uniqueID: 2849958837
     locked: 0

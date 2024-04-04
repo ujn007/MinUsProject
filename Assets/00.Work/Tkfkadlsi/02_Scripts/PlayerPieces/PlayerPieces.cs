@@ -6,17 +6,16 @@ using UnityEngine.EventSystems;
 
 public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 {
+    public SelectPieces selectPieces;
     protected MovePoint[] movePoints;
-    protected SelectPieces selectPieces;
     protected GameObject movePointTrm;
+
     public int SubEnergy { get; protected set; }
-    public bool IsMove { protected get; set; }
     
     private void Start()
     {
         selectPieces = FindObjectOfType<SelectPieces>();
-        movePoints = GetComponentsInChildren<MovePoint>();
-        Debug.Log(movePoints.Length);
+        movePoints = transform.GetChild(0).GetComponentsInChildren<MovePoint>();
     }
 
     public void MovePointONOFF(bool compulsionOff = false)
@@ -37,4 +36,9 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     }
 
     public abstract void OnPointerClick(PointerEventData eventData);
+
+    public void MovePiece()
+    {
+
+    }
 }

@@ -11,10 +11,10 @@ public class TileScript : MonoBehaviour, IPointerClickHandler
     {
         if(TMananger.instance.CurrnetState == GameState.Set)
         {
-            OnThisTileObject = TMananger.instance.WaitPieces[0];
+            OnThisTileObject = TMananger.instance.StartPieces[0];
             OnThisTileObject.transform.position = transform.position;
             OnThisTileObject.SetActive(true);
-            TMananger.instance.WaitPieces.Remove(OnThisTileObject);
+            TMananger.instance.StartPieces.Remove(OnThisTileObject);
         }
     }
 }

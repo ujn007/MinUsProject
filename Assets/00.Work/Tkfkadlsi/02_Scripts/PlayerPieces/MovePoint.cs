@@ -5,6 +5,13 @@ using UnityEngine.EventSystems;
 
 public class MovePoint : MonoBehaviour, IPointerClickHandler
 {
+    PlayerPieces rootPiece;
+
+    private void Start()
+    {
+        rootPiece = transform.root.GetComponent<PlayerPieces>();
+    }
+
     public void SelectedParentPiece()
     {
         bool isXout = false;
@@ -27,14 +34,14 @@ public class MovePoint : MonoBehaviour, IPointerClickHandler
         {
             gameObject.SetActive(true);
         }
-
-        Debug.Log(isXout + " " + isYout);
-        Debug.Log(transform.position);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
+        if (TMananger.instance.CurrnetState != GameState.PlayerTurn) return;
+        rootPiece.transform.position = transform.position;
+        rootPiece.MovePiece();
+        rootPiece.selectPieces.NonSelectPiece();
     }
 
     private bool Clamp(float min, float max, float value)
