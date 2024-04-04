@@ -152,9 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b092a75e71b67409e2047b83318f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitPieces: []
+  StartPieces: []
   CurrnetState: 0
   tileScale: 1.4
+  minPos: {x: 0, y: 0}
+  maxPos: {x: 0, y: 0}
   tileSize: 7
   tilePrefab: {fileID: 7913892109740540737, guid: c8713ab24eeb34447aa0071cd199bc99, type: 3}
   tilesParent: {fileID: 704126742}
@@ -162,6 +164,8 @@ MonoBehaviour:
   tileColor2: {r: 0.24919893, g: 0.754717, b: 0.2767491, a: 1}
   pieces:
   - {fileID: 7519671940468202681, guid: 35e9a335428f72a489a0a1202302bab0, type: 3}
+  - {fileID: 7519671940468202681, guid: b1add601d37cbfe4cb77ec5e6ae693f0, type: 3}
+  - {fileID: 7519671940468202681, guid: a1c85bb32b1e10a469e37d05440c714c, type: 3}
 --- !u!4 &258000040
 Transform:
   m_ObjectHideFlags: 0
@@ -319,7 +323,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

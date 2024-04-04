@@ -7,15 +7,14 @@ public enum GameState
 {
     Start,
     Set,
-    SelectPiece,
-    MovePiece,
+    PlayerTurn,
     EnemyTurn,
 }
 
 public class TMananger : MonoBehaviour
 {
     [Header("Public")]
-    [HideInInspector] public List<GameObject> WaitPieces = new List<GameObject>();
+    [HideInInspector] public List<GameObject> StartPieces = new List<GameObject>();
     public Dictionary<Vector2, TileScript> Pos2Tile = new Dictionary<Vector2, TileScript>();
     public Dictionary<GameObject, TileScript> Obj2Tile = new Dictionary<GameObject, TileScript>();
     public GameState CurrnetState;
@@ -96,10 +95,10 @@ public class TMananger : MonoBehaviour
             y -= tileSize;
         }
 
-        for(int i = 0; i < 3; i++)
-        {
-            WaitPieces.Add(GetPiece(0));
-        }
+        StartPieces.Add(GetPiece(0));
+        StartPieces.Add(GetPiece(1));
+        StartPieces.Add(GetPiece(2));
+
         tilesParent.localScale = new Vector3(tileScale, tileScale);
         minPos *= tileScale;
         maxPos *= tileScale;
@@ -109,13 +108,11 @@ public class TMananger : MonoBehaviour
 
     private IEnumerator SettingPieces()
     {
-        while(WaitPieces.Count > 0)
+        while(StartPieces.Count > 0)
         {
             yield return new WaitUntil(()=>Input.GetMouseButtonDown(0));
         }
 
-        EnemySpawnManager.Instance.SpawnEenemy();
-        CurrnetState = GameState.SelectPiece;
-        Debug.Log(0);
+        CurrnetState = GameState.PlayerTurn;
     }
 }
