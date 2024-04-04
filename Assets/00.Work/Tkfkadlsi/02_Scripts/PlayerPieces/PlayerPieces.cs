@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 {
     public SelectPieces selectPieces;
+    public PlayerEnergy playerEnergy;
     protected MovePoint[] movePoints;
     protected GameObject movePointTrm;
 
@@ -15,6 +16,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         selectPieces = FindObjectOfType<SelectPieces>();
+        playerEnergy = FindObjectOfType<PlayerEnergy>();
         movePoints = transform.GetChild(0).GetComponentsInChildren<MovePoint>();
     }
 
@@ -39,6 +41,6 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 
     public void MovePiece()
     {
-
+        playerEnergy.MinusEnergy(SubEnergy);
     }
 }

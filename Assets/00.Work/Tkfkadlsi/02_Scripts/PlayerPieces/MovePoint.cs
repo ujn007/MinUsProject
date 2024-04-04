@@ -39,6 +39,8 @@ public class MovePoint : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if (TMananger.instance.CurrnetState != GameState.PlayerTurn) return;
+        if (rootPiece.playerEnergy.GetEnergy() - rootPiece.SubEnergy < 0) return;
+
         rootPiece.transform.position = transform.position;
         rootPiece.MovePiece();
         rootPiece.selectPieces.NonSelectPiece();
