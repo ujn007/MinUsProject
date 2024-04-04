@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4301234822309814253}
   - component: {fileID: 199764290307975320}
   - component: {fileID: 4010084146700258527}
+  - component: {fileID: 8416239909645670877}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -97,3 +98,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ffda1bd4591d349905de9e92a96cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8416239909645670877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361721187513150620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bbc3a0c5b9fed4bb01abdf1272b121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <connectRoad>k__BackingField: []
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 64
+  distance: 1.4
+  radius: 0.5

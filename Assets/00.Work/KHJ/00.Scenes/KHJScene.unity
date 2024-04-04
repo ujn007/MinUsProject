@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tileParent: {fileID: 704126742}
   _enemyPF: {fileID: 4301234822309814253, guid: 64330aa985437c64a9453eecfe0c87d9, type: 3}
-  _enemySpawnCount: 5
+  _enemySpawnCount: 1
 --- !u!4 &147676502
 Transform:
   m_ObjectHideFlags: 0
