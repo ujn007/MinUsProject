@@ -16,7 +16,7 @@ public class Dig : PlayerPieces
 
     public override void OnPointerClick(PointerEventData eventData)
     {
-        if (TMananger.instance.CurrnetState != GameState.SelectPiece) return;
+        if (TMananger.instance.CurrnetState != GameState.PlayerTurn) return;
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float distance = Vector2.Distance(mousePos, transform.position);
