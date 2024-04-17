@@ -25,4 +25,9 @@ public class SelectPieces : MonoBehaviour
         PlayerPieces pieces = selectedPiece.GetComponent<PlayerPieces>();
         pieces.MovePointONOFF(true);
     }
+
+    public GameObject GetSelectPiece()
+    {
+        return selectedPiece;
+    }
 }
