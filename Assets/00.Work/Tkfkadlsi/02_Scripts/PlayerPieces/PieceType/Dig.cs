@@ -5,8 +5,6 @@ using UnityEngine.EventSystems;
 
 public class Dig : PlayerPieces
 {
-
-
     private void Awake()
     {
         SubEnergy = 1;

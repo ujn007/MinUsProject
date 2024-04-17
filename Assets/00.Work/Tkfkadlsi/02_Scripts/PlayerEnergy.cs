@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerEnergy : MonoBehaviour
 {
     public event Action PlayerTurnEnd;
-    private int energy;
+    private int energy = 3;
 
     public void TurnStart(int newTurnEnergy)
     {
