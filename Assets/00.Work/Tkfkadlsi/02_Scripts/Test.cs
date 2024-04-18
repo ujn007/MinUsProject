@@ -2,26 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class Test : MonoBehaviour
+public class Test : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private TextMeshProUGUI UGUI;
-    [SerializeField] private TextMeshProUGUI _leadershipText;
-    int leaderShip = 0;
-
-    public void ResetLeadership(int leadership)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        _leadershipText.text = leadership.ToString();
-    }
-
-    public void NextWave(int wave)
-    {
-        UGUI.text = wave.ToString() + " Wave";
-    }
-
-    public void SubtractLeadership(int minusLeadership)
-    {
-        leaderShip -= minusLeadership;
-        _leadershipText.text = leaderShip.ToString();
+        
     }
 }

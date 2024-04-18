@@ -8,7 +8,6 @@ public class Dig : PlayerPieces
     private void Awake()
     {
         SubEnergy = 1;
-        movePointTrm = transform.GetChild(0).gameObject;
         movePointTrm.SetActive(false);
     }
 
