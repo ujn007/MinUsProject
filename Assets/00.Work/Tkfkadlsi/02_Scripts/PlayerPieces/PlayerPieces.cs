@@ -70,19 +70,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         if(collision.CompareTag("Enemy"))
         {
             //적 잡기 구현
-            switch(pieceIndex)
-            {
-                case 1:
-                    pieceManager.P1Level(1, this);
-                    break;
-                case 2:
-                    pieceManager.P2Level(1, this);
-                    break;
-                case 3:
-                    pieceManager.P3Level(1, this);
-                    break;
-            }
-            
+            pieceManager.PCLevel(1, this);
         }
     }
 }
