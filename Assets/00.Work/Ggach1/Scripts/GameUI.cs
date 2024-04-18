@@ -50,7 +50,7 @@ public class GameUI : MonoBehaviour
         _leftWaveText.text = _leftwave.ToString();
     }
 
-    public void P1Level(int _PCCatchE, GameObject _Piece)
+    public void P1Level(int _PCCatchE, PlayerPieces _Piece)
     {
         _P1EXP += _PCCatchE;
         _PCLevelText.text = _PCCatchE.ToString() + $" / {_pc1Levelif[_nowPc1Level - 1]}";
@@ -61,7 +61,7 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    public void P2Level(int _PCCatchE, GameObject _Piece)
+    public void P2Level(int _PCCatchE, PlayerPieces _Piece)
     {
         _P2EXP += _PCCatchE;
         _PCLevelText.text = _PCCatchE.ToString() + $" / {_pc2Levelif[_nowPc2Level - 1]}";
@@ -72,7 +72,7 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    public void P3Level(int _PCCatchE, GameObject _Piece)
+    public void P3Level(int _PCCatchE, PlayerPieces _Piece)
     {
         _P3EXP += _PCCatchE;
         _PCLevelText.text = _PCCatchE.ToString() + $" / {_pc3Levelif[_nowPc3Level - 1]}";
