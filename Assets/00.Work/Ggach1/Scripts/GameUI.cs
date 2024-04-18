@@ -18,15 +18,9 @@ public class GameUI : MonoBehaviour
     int _P2EXP = 0;
     int _P3EXP = 0;
 
-    int _nowPc1Level = 1;
-    int _nowPc2Level = 1;
-    int _nowPc3Level = 1;
-
     int[] _pc1Levelif = { 7, 9, 11 };
     int[] _pc2Levelif = { 7, 9, 11 };
     int[] _pc3Levelif = { 7, 9, 11 };
-
-    
 
     public void Resetleadership(int _leadership)
     {
@@ -50,37 +44,23 @@ public class GameUI : MonoBehaviour
         _leftWaveText.text = _leftwave.ToString();
     }
 
-    public void P1Level(int _PCCatchE, PlayerPieces _Piece)
+    public void PCLevel(int _PCCatchE, PlayerPieces _Piece)
     {
-        _P1EXP += _PCCatchE;
-        _PCLevelText.text = _PCCatchE.ToString() + $" / {_pc1Levelif[_nowPc1Level - 1]}";
-        if (_PCCatchE >= _pc1Levelif[_nowPc1Level - 1])
+        _Piece.pieceEXP += _PCCatchE;
+        _PCLevelText.text = _PCCatchE.ToString() + $" / {_pc1Levelif[_Piece.pieceLevel]}";
+        PCTextUpdate(_Piece.pieceIndex);
+        if (_PCCatchE >= _pc1Levelif[_Piece.pieceLevel])
         {
-            _P1EXP -= _pc1Levelif[_nowPc1Level - 1];
-            _nowPc1Level++;
+            _Piece.pieceEXP -= _pc1Levelif[_Piece.pieceLevel];
+            _Piece.Evolution();
         }
     }
 
-    public void P2Level(int _PCCatchE, PlayerPieces _Piece)
+    private void PCTextUpdate(int index)
     {
-        _P2EXP += _PCCatchE;
-        _PCLevelText.text = _PCCatchE.ToString() + $" / {_pc2Levelif[_nowPc2Level - 1]}";
-        if (_PCCatchE >= _pc2Levelif[_nowPc2Level - 1])
+        switch(index)
         {
-            _P2EXP -= _pc2Levelif[_nowPc2Level - 1];
-            _nowPc2Level++;
-        }
-    }
-
-    public void P3Level(int _PCCatchE, PlayerPieces _Piece)
-    {
-        _P3EXP += _PCCatchE;
-        _PCLevelText.text = _PCCatchE.ToString() + $" / {_pc3Levelif[_nowPc3Level - 1]}";
-        if (_PCCatchE >= _pc3Levelif[_nowPc3Level - 1])
-        {
-            _P2EXP -= _pc3Levelif[_nowPc3Level - 1];
-            _nowPc3Level++;
-
+             
         }
     }
 }
