@@ -15,7 +15,8 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 
     public int SubEnergy { get; protected set; }
     public int pieceIndex;
-    protected int pieceLevel = 0;
+    public int pieceLevel = 0;
+    public int pieceEXP = 0;
     
     private void Start()
     {
