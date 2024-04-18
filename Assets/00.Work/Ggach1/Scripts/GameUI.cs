@@ -13,14 +13,9 @@ public class GameUI : MonoBehaviour
     TextMeshProUGUI _leftWaveText;
     int _leftWave = 0;
 
-    TextMeshProUGUI _PCLevelText;
-    int _P1EXP = 0;
-    int _P2EXP = 0;
-    int _P3EXP = 0;
-
-    int[] _pc1Levelif = { 7, 9, 11 };
-    int[] _pc2Levelif = { 7, 9, 11 };
-    int[] _pc3Levelif = { 7, 9, 11 };
+    TextMeshProUGUI _PC1LevelText;
+    TextMeshProUGUI _PC2LevelText;
+    TextMeshProUGUI _PC3LevelText;
 
     public void Resetleadership(int _leadership)
     {
@@ -47,20 +42,27 @@ public class GameUI : MonoBehaviour
     public void PCLevel(int _PCCatchE, PlayerPieces _Piece)
     {
         _Piece.pieceEXP += _PCCatchE;
-        _PCLevelText.text = _PCCatchE.ToString() + $" / {_pc1Levelif[_Piece.pieceLevel]}";
-        PCTextUpdate(_Piece.pieceIndex);
-        if (_PCCatchE >= _pc1Levelif[_Piece.pieceLevel])
+        PCTextUpdate(_Piece);
+        if (_PCCatchE >= _Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel])
         {
-            _Piece.pieceEXP -= _pc1Levelif[_Piece.pieceLevel];
+            _Piece.pieceEXP -= _Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel];
             _Piece.Evolution();
         }
     }
 
-    private void PCTextUpdate(int index)
+    private void PCTextUpdate(PlayerPieces _Piece)
     {
-        switch(index)
+        switch (_Piece.pieceIndex)
         {
-             
+            case 1:
+                _PC1LevelText.text = $"{_Piece.pieceEXP} / {_Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel]}";
+                break;
+            case 2:
+                _PC2LevelText.text = $"{_Piece.pieceEXP} / {_Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel]}";
+                break;
+            case 3:
+                _PC3LevelText.text = $"{_Piece.pieceEXP} / {_Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel]}";
+                break;
         }
     }
 }
