@@ -6,6 +6,7 @@ using UnityEngine;
 public class PieceTechLineSO : ScriptableObject
 {
     public GameObject[] movePoints;
+    public int[] LevelUpCondition;
     public Sprite[] visual;
     public Animator level3_animator;
 }
