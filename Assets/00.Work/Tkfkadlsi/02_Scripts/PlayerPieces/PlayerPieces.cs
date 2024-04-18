@@ -8,24 +8,30 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 {
     public SelectPieces selectPieces;
     public PlayerEnergy playerEnergy;
+    public PieceTechLineSO techLineSO;
     protected MovePoint[] movePoints;
-    protected GameObject movePointTrm;
+    protected GameObject movePointTrm = new GameObject();
     protected GameUI pieceManager;
 
     public int SubEnergy { get; protected set; }
     public int pieceIndex;
+    protected int pieceLevel = 0;
     
     private void Start()
     {
         selectPieces = FindObjectOfType<SelectPieces>();
         playerEnergy = FindObjectOfType<PlayerEnergy>();
         pieceManager = FindObjectOfType<GameUI>();
-        SetMovePoint(movePointTrm);
+        SetMovePoint(pieceLevel);
     }
 
-    private void SetMovePoint(GameObject newMovepointTrm)
+    private void SetMovePoint(int level)
     {
-        movePoints = newMovepointTrm.GetComponentsInChildren<MovePoint>();
+        Destroy(movePointTrm);
+        GameObject newMovepoints = Instantiate(techLineSO.movePoints[level], transform.position, Quaternion.identity);
+        newMovepoints.SetActive(false);
+        movePointTrm = newMovepoints;
+        movePoints = newMovepoints.GetComponentsInChildren<MovePoint>();
     }
 
     public void MovePointONOFF(bool compulsionOff = false)
@@ -52,9 +58,10 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         playerEnergy.MinusEnergy(SubEnergy);
     }
 
-    public void Evolution(GameObject newMovepointObject)
+    public void Evolution()
     {
-        movePointTrm = newMovepointObject;
+        pieceLevel++;
+        SetMovePoint(pieceLevel);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
