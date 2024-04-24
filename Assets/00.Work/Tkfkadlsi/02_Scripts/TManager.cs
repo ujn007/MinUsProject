@@ -113,6 +113,7 @@ public class TMananger : MonoBehaviour
             yield return new WaitUntil(()=>Input.GetMouseButtonDown(0));
         }
 
+        EnemySpawnManager.Instance.SpawnEenemy();
         CurrnetState = GameState.PlayerTurn;
     }
 }

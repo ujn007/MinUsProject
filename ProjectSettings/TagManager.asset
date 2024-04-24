@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pieces
   - MovePoint
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Tile
+  - Player
   - 
   - 
   - 
@@ -51,4 +52,7 @@ TagManager:
     locked: 0
   - name: Pieces
     uniqueID: 2849958837
+    locked: 0
+  - name: Enemy
+    uniqueID: 1898610019
     locked: 0

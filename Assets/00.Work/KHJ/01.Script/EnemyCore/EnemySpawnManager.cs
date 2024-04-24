@@ -5,16 +5,15 @@ using UnityEngine;
 public class EnemySpawnManager : MonoSingleton<EnemySpawnManager>
 {
     [Header("Tile")]
+    public TMananger TManager;
     [SerializeField] private Transform _tileParent;
-
-    private List<Transform> _tileList;
-    public List<Transform> TileList => _tileList;
 
     [Header("EnemySetting")]
     [SerializeField] private Transform _enemyPF;
     [SerializeField] private int _enemySpawnCount;
-
-    private TMananger _tManager => TMananger.instance;
+    
+    private List<Transform> _tileList;
+    public List<Transform> TileList => _tileList;
 
     private void Start()
     {
