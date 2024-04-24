@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e539a1847253d5b46b6f421bb5f80884, type: 3}
-  m_Name: Character2_Tech
+  m_Name: Knight
   m_EditorClassIdentifier: 
   movePoints:
-  - {fileID: 7519671940468202681, guid: b1add601d37cbfe4cb77ec5e6ae693f0, type: 3}
+  - {fileID: 6343826270308397481, guid: aae0a9750cd25384d9bbc5468c6ce1dd, type: 3}
   LevelUpCondition: 
   visual: []
   level3_animator: {fileID: 0}

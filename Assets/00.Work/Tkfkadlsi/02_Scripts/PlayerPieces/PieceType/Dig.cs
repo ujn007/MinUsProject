@@ -5,11 +5,9 @@ using UnityEngine.EventSystems;
 
 public class Dig : PlayerPieces
 {
-    private void Awake()
+    private void Start()
     {
-        SubEnergy = 1;
-        movePointTrm = transform.GetChild(0).gameObject;
-        movePointTrm.SetActive(false);
+        InitPiece();
     }
 
     public override void OnPointerClick(PointerEventData eventData)

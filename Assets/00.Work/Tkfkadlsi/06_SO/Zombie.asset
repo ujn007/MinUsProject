@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e539a1847253d5b46b6f421bb5f80884, type: 3}
-  m_Name: Character3_Tech
+  m_Name: Zombie
   m_EditorClassIdentifier: 
   movePoints:
-  - {fileID: 7519671940468202681, guid: a1c85bb32b1e10a469e37d05440c714c, type: 3}
+  - {fileID: 7519671940468202681, guid: d51a60de8ae92c04a9a91afcbe6f8bd3, type: 3}
   LevelUpCondition: 
   visual: []
   level3_animator: {fileID: 0}

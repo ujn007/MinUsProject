@@ -15,7 +15,7 @@ public enum GameState
 public class TMananger : MonoBehaviour
 {
     [Header("Public")]
-    [HideInInspector] public List<GameObject> StartPieces = new List<GameObject>();
+    public List<GameObject> StartPieces = new List<GameObject>();
     public Dictionary<Vector2, TileScript> Pos2Tile = new Dictionary<Vector2, TileScript>();
     public Dictionary<GameObject, TileScript> Obj2Tile = new Dictionary<GameObject, TileScript>();
     public GameState CurrnetState;
