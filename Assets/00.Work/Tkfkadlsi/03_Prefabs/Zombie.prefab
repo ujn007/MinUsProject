@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8224704617524200419}
   - component: {fileID: 5120414234842968146}
   - component: {fileID: 8083505017296038149}
-  - component: {fileID: 4593155533925508409}
+  - component: {fileID: 4681229510044653065}
   m_Layer: 0
-  m_Name: Diagonal
+  m_Name: Zombie
   m_TagString: Pieces
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &4593155533925508409
+--- !u!114 &4681229510044653065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,9 +130,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7519671940468202681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f6a36356a8306e4cac431dc8bc4f43f, type: 3}
+  m_Script: {fileID: 11500000, guid: 113b4df9196998148bdac56598d8a1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectPieces: {fileID: 0}
   playerEnergy: {fileID: 0}
-  techLineSO: {fileID: 11400000, guid: ac9a09a208ae25c4c887953c5ab89fd3, type: 2}
+  techLineSO: {fileID: 11400000, guid: fc6f36b79bdc68e45a6744282f7185a3, type: 2}

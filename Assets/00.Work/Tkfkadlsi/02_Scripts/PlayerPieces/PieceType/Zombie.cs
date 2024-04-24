@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Dig : PlayerPieces
+public class Zombie : PlayerPieces
 {
-    private void Start()
+    private void Awake()
     {
         InitPiece();
     }
