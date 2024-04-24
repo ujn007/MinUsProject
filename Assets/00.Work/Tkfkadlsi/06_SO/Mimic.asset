@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e539a1847253d5b46b6f421bb5f80884, type: 3}
-  m_Name: Character1_Tech
+  m_Name: Mimic
   m_EditorClassIdentifier: 
   movePoints:
-  - {fileID: 7519671940468202681, guid: 35e9a335428f72a489a0a1202302bab0, type: 3}
+  - {fileID: 3337581225252622559, guid: 96b78a3398663f14fb363b8bdb7e802d, type: 3}
   LevelUpCondition: 
   visual: []
   level3_animator: {fileID: 0}

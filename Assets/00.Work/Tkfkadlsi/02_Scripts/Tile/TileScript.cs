@@ -16,11 +16,11 @@ public class TileScript : MonoBehaviour, IPointerClickHandler
             OnThisTileObject = TMananger.instance.StartPieces[0];
             OnThisTileObject.transform.position = transform.position;
 
+            OnThisTileObject.SetActive(true);
             PlayerPieces piece = OnThisTileObject.GetComponent<PlayerPieces>();
             piece.pieceIndex = index;
             index++;
-            OnThisTileObject.SetActive(true);
-            TMananger.instance.StartPieces.Remove(OnThisTileObject);
+            TMananger.instance.StartPieces.RemoveAt(0);
         }
     }
 }

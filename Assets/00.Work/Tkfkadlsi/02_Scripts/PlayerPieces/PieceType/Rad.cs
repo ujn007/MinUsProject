@@ -7,9 +7,7 @@ public class Rad : PlayerPieces
 {
     private void Awake()
     {
-        SubEnergy = 1;
-        movePointTrm = transform.GetChild(0).gameObject;
-        movePointTrm.SetActive(false);
+        InitPiece();
     }
 
     public override void OnPointerClick(PointerEventData eventData)

@@ -33,8 +33,8 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     {
         Destroy(movePointTrm);
         GameObject newMovepoints = Instantiate(techLineSO.movePoints[level], transform.position, Quaternion.identity);
-        newMovepoints.SetActive(false);
         movePointTrm = newMovepoints;
+        movePointTrm.SetActive(false);
         movePoints = newMovepoints.GetComponentsInChildren<MovePoint>();
     }
 
@@ -60,6 +60,12 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     public void MovePiece()
     {
         playerEnergy.MinusEnergy(SubEnergy);
+    }
+
+    public void HitPiece(int damage)
+    {
+        pieceHP -= damage;
+        
     }
 
     public void LevelUp()
