@@ -4,8 +4,26 @@ using UnityEngine;
 using TMPro;
 using UnityEditor.VersionControl; //텍스트 건드림
 
+public enum HPColor
+{
+    Red = 0,
+    Green = 1,
+    Purple = 2
+}
+
 public class GameUI : MonoBehaviour
 {
+    [SerializeField] private List<Color> hpColor = new List<Color>();
+    public Dictionary<HPColor, Color> HPColorDic = new Dictionary<HPColor, Color>();
+
+    private void Start()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            HPColorDic.Add((HPColor)i, hpColor[i]); 
+        }
+    }
+
     TextMeshProUGUI _wave;
     TextMeshProUGUI _leadershipText;
     int _leadership = 0;
@@ -64,5 +82,10 @@ public class GameUI : MonoBehaviour
                 _PC3LevelText.text = $"{_Piece.pieceEXP} / {_Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel]}";
                 break;
         }
+    }
+
+    private void PChpchange(PlayerPieces _Piece)
+    {
+
     }
 }
