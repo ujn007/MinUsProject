@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e539a1847253d5b46b6f421bb5f80884, type: 3}
+  m_Name: Mimic
+  m_EditorClassIdentifier: 
+  movePoints:
+  - {fileID: 3337581225252622559, guid: 96b78a3398663f14fb363b8bdb7e802d, type: 3}
+  LevelUpCondition: 
+  visual: []
+  level3_animator: {fileID: 0}

@@ -10,6 +10,8 @@ public class MovePoint : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         rootPiece = transform.root.GetComponent<PlayerPieces>();
+        float scale = TMananger.instance.tileScale;
+        transform.localPosition = new Vector3(transform.localPosition.x * scale, transform.localPosition.y * scale);
     }
 
     public void SelectedParentPiece()
@@ -43,7 +45,7 @@ public class MovePoint : MonoBehaviour, IPointerClickHandler
 
         rootPiece.transform.position = transform.position;
         rootPiece.MovePiece();
-        rootPiece.selectPieces.NonSelectPiece();
+        rootPiece.selectPieces.MoveSelectPiece();
     }
 
     private bool Clamp(float min, float max, float value)

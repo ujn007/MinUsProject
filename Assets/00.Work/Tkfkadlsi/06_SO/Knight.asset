@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e539a1847253d5b46b6f421bb5f80884, type: 3}
+  m_Name: Knight
+  m_EditorClassIdentifier: 
+  movePoints:
+  - {fileID: 6343826270308397481, guid: aae0a9750cd25384d9bbc5468c6ce1dd, type: 3}
+  LevelUpCondition: 
+  visual: []
+  level3_animator: {fileID: 0}

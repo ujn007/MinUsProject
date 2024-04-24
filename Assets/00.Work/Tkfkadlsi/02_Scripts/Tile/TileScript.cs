@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class TileScript : MonoBehaviour, IPointerClickHandler
 {
     public GameObject OnThisTileObject;
+    private int index = 1;
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -13,11 +15,12 @@ public class TileScript : MonoBehaviour, IPointerClickHandler
         {
             OnThisTileObject = TMananger.instance.StartPieces[0];
             OnThisTileObject.transform.position = transform.position;
-            OnThisTileObject.SetActive(true);
-            TMananger.instance.StartPieces.Remove(OnThisTileObject);
 
-            //김현준이 추가한 코드야  ㅎㅎ
-            EnemySpawnManager.Instance.TileList.Remove(transform);
+            OnThisTileObject.SetActive(true);
+            PlayerPieces piece = OnThisTileObject.GetComponent<PlayerPieces>();
+            piece.pieceIndex = index;
+            index++;
+            TMananger.instance.StartPieces.RemoveAt(0);
         }
     }
 }
