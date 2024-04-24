@@ -25,4 +25,11 @@ public class Rad : PlayerPieces
             return;
         }
     }
+    protected override void InitPiece()
+    {
+        SubEnergy = 1;
+        pieceLevel = 0;
+        pieceEXP = 0;
+        pieceIndex = 1;
+    }
 }

@@ -8,16 +8,17 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 {
     public SelectPieces selectPieces;
     public PlayerEnergy playerEnergy;
-    public PieceTechLineSO techLineSO;
+    public PieceSO techLineSO;
     protected MovePoint[] movePoints;
-    protected GameObject movePointTrm = new GameObject();
+    protected GameObject movePointTrm;
     protected GameUI pieceManager;
 
     public int SubEnergy { get; protected set; }
-    public int pieceIndex;
-    public int pieceLevel = 0;
-    public int pieceEXP = 0;
-    
+    public int pieceLevel { get; protected set; }
+    public int pieceHP { get; protected set; }
+    public int pieceIndex { get; set; }
+    public int pieceEXP { get; set; }
+
     private void Start()
     {
         selectPieces = FindObjectOfType<SelectPieces>();
@@ -25,6 +26,8 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         pieceManager = FindObjectOfType<GameUI>();
         SetMovePoint(pieceLevel);
     }
+
+    protected abstract void InitPiece();
 
     private void SetMovePoint(int level)
     {
@@ -59,7 +62,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         playerEnergy.MinusEnergy(SubEnergy);
     }
 
-    public void Evolution()
+    public void LevelUp()
     {
         pieceLevel++;
         SetMovePoint(pieceLevel);
@@ -67,7 +70,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy"))
         {
             //적 잡기 구현
             pieceManager.PCLevel(1, this);
