@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectPieces: {fileID: 0}
   playerEnergy: {fileID: 0}
+  techLineSO: {fileID: 11400000, guid: fc6f36b79bdc68e45a6744282f7185a3, type: 2}
 --- !u!1001 &292797292900753656
 PrefabInstance:
   m_ObjectHideFlags: 0
