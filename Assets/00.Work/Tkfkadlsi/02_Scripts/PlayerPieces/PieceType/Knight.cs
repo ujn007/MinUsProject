@@ -25,4 +25,12 @@ public class Knight : PlayerPieces
             return;
         }
     }
+
+    protected override void InitPiece()
+    {
+        SubEnergy = 2;
+        pieceLevel = 0;
+        pieceEXP = 0;
+        pieceIndex = 2;
+    }
 }
