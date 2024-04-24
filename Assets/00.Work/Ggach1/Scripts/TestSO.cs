@@ -11,5 +11,4 @@ public class TestSO : ScriptableObject
     public Sprite image;
     public Animator anim;
     public Color color;
-    public PieceTechLineSO pieceSO;
 }
