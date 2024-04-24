@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "SO/PieceTechLine")]
-public class PieceTechLineSO : ScriptableObject
+public class PieceSO : ScriptableObject
 {
     public GameObject[] movePoints;
     public int[] LevelUpCondition;

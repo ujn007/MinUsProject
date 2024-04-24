@@ -64,7 +64,7 @@ public class GameUI : MonoBehaviour
         if (_PCCatchE >= _Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel])
         {
             _Piece.pieceEXP -= _Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel];
-            _Piece.Evolution();
+            _Piece.LevelUp();
         }
     }
 

@@ -4,10 +4,18 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class Test : MonoBehaviour, IPointerClickHandler
+public class Test : MonoBehaviour
 {
-    public void OnPointerClick(PointerEventData eventData)
+    Dictionary<int, string> dictionary = new Dictionary<int, string>();
+
+    private void Awake()
     {
-        
+        dictionary.Add(1, "¿ë»óÇö 4¹Ý");
+        dictionary.Add(2, "Ã¶±Ç ¹ÚÂù¿õ ¹Ø ½ÂÈ£¼º");
+    }
+
+    private void Start()
+    {
+        Debug.Log(dictionary[2]);
     }
 }
