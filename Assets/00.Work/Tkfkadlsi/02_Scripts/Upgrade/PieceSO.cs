@@ -9,4 +9,5 @@ public class PieceSO : ScriptableObject
     public int[] LevelUpCondition;
     public Sprite[] visual;
     public Animator level3_animator;
+    public int[] ConsumptionValue;
 }
