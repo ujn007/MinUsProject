@@ -45,6 +45,11 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
             spriteRenderer.sprite = techLineSO.visual[level];
     }
 
+    private void SetSubEnergy(int level)
+    {
+        SubEnergy = techLineSO.ConsumptionValue[level];
+    }
+
     public void MovePointONOFF(bool compulsionOff = false)
     {
         if (compulsionOff)
@@ -80,6 +85,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         pieceLevel++;
         SetMovePoint(pieceLevel);
         SetVisual(pieceLevel);
+        SetSubEnergy(pieceLevel);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
