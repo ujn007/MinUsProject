@@ -17,3 +17,4 @@ MonoBehaviour:
   LevelUpCondition: 
   visual: []
   level3_animator: {fileID: 0}
+  ConsumptionValue: 

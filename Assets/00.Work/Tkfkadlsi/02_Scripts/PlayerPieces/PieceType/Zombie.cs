@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Zombie : PlayerPieces
 {
+    private int killcount;
+
     private void Awake()
     {
         InitPiece();
@@ -22,6 +24,12 @@ public class Zombie : PlayerPieces
             selectPieces.SelectNewPiece(gameObject);
             return;
         }
+    }
+
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        mySkill.Skill();
     }
 
     protected override void InitPiece()
