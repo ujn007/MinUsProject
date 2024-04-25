@@ -10,7 +10,7 @@ public enum HPColor
     Black = 0,
     Red = 1,
     Green = 2,
-    Purple = 3
+    Purple = 3,
 }
 
 public class GameUI : MonoBehaviour
@@ -67,7 +67,8 @@ public class GameUI : MonoBehaviour
     {
         _Piece.pieceEXP += _PCCatchE;
         PCTextUpdate(_Piece);
-        if (_PCCatchE >= _Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel])
+
+        while(_Piece.pieceEXP >= _Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel])
         {
             _Piece.pieceEXP -= _Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel];
             _Piece.LevelUp();
