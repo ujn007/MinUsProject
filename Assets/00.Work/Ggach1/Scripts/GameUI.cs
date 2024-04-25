@@ -16,23 +16,23 @@ public enum HPColor
 public class GameUI : MonoBehaviour
 {
     [SerializeField] private List<Color> hpColor = new List<Color>();
-    public Dictionary<HPColor, Color> HPColorDic = new Dictionary<HPColor, Color>();
+    [SerializeField] public Dictionary<HPColor, Color> HPColorDic = new Dictionary<HPColor, Color>();
 
-    public GameObject _HpPieces0;
-    public GameObject _HpPieces1;
-    public GameObject _HpPieces2;
+    [SerializeField] public GameObject _HpPieces0;
+    [SerializeField] public GameObject _HpPieces1;
+    [SerializeField] public GameObject _HpPieces2;
 
 
-    TextMeshProUGUI _wave;
-    TextMeshProUGUI _leadershipText;
+    [SerializeField] TextMeshProUGUI _wave;
+    [SerializeField] TextMeshProUGUI _leadershipText;
     int _leadership = 0;
 
     TextMeshProUGUI _leftWaveText;
     int _leftWave = 0;
 
-    TextMeshProUGUI _PC1LevelText;
-    TextMeshProUGUI _PC2LevelText;
-    TextMeshProUGUI _PC3LevelText;
+    [SerializeField] TextMeshProUGUI _PC1LevelText;
+    [SerializeField] TextMeshProUGUI _PC2LevelText;
+    [SerializeField] TextMeshProUGUI _PC3LevelText;
     private void Start()
     {
         for(int i = 0; i < 3; i++)
