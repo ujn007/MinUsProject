@@ -90,7 +90,7 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    private void PChpchange(PlayerPieces _Piece)
+    public void PChpchange(PlayerPieces _Piece)
     {
         GameObject currentHP = null;
 

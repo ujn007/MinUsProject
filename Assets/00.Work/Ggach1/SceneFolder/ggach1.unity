@@ -2113,6 +2113,12 @@ MonoBehaviour:
   _HpPieces0: {fileID: 324371610}
   _HpPieces1: {fileID: 1083981790}
   _HpPieces2: {fileID: 1411417595}
+  _wave: {fileID: 1615365526501160954}
+  _leadershipText: {fileID: 5799147671900745018}
+  _leftWaveText: {fileID: 1895535131237979450}
+  _PC1LevelText: {fileID: 6772981686458566750}
+  _PC2LevelText: {fileID: 2471688122881793211}
+  _PC3LevelText: {fileID: 6626336227440075108}
 --- !u!224 &6949554956025147289
 RectTransform:
   m_ObjectHideFlags: 0
