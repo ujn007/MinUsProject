@@ -54,6 +54,16 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 
     public void MovePointONOFF(bool compulsionOff = false)
     {
+        if(selectPieces.isLockSelectPiece)
+        {
+            movePointTrm.SetActive(true);
+            foreach (MovePoint movePoint in movePoints)
+            {
+                movePoint.SelectedParentPiece();
+            }
+            return;
+        }
+
         if (compulsionOff)
         {
             movePointTrm.SetActive(false);
@@ -73,6 +83,11 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 
     public void MovePiece()
     {
+        if (selectPieces.isLockSelectPiece)
+        {
+            selectPieces.UnLockPiece();
+            return;
+        }
         playerEnergy.MinusEnergy(SubEnergy);
     }
 
@@ -96,12 +111,5 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         SetSubEnergy(pieceLevel);
     }
 
-    public virtual void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            //적 잡기 구현
-            pieceManager.PCLevel(1, this);
-        }
-    }
+    public abstract void OnTriggerEnter2D(Collider2D collision);
 }

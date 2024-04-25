@@ -46,6 +46,9 @@ TagManager:
   - name: Tile
     uniqueID: 2825508667
     locked: 0
+  - name: TestLayer
+    uniqueID: 3457725693
+    locked: 0
   - name: MovePoint
     uniqueID: 629165115
     locked: 0
