@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class NormalMoveState : EnemyState<NormalStateEnum>
 {
-    bool canMove;
+    public bool canMove;
+
+    public Transform moveToTrm = null;
+    public GameObject moveToObj = null;
+
     public NormalMoveState(Enemy _enemy, EnemyStateMachine<NormalStateEnum> _stateMachine) : base(_enemy, _stateMachine)
     {
     }
@@ -12,14 +16,6 @@ public class NormalMoveState : EnemyState<NormalStateEnum>
     public override void Enter()
     {
         List<Transform> goRoads = enemy.targets;
-
-
-
-
-    }
-
-    public override void Exit()
-    {
     }
 
     public override void UpdateState()
@@ -28,13 +24,11 @@ public class NormalMoveState : EnemyState<NormalStateEnum>
         {
             if (!canMove)
             {
-                Transform moveToTrm = null;
-                LayerMask moveToLayer = 1 << 0;
-                enemy.CheckRoad(ref moveToTrm, ref moveToLayer);
+                enemy.CheckRoad(ref moveToTrm, ref moveToObj);
 
-                if ((int)moveToLayer == 7) //7이 플레이어
+                Debug.Log(moveToObj.layer);
+                if (moveToObj.layer == 1 << 7) //7이 플레이어
                 {
-                    enemy.transform.DOMove(moveToTrm.position, 0.5f).OnComplete(() => canMove = false);
                     stateMachine.ChangeState(NormalStateEnum.Attack);
                 }
                 else

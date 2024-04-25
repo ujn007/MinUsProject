@@ -16,6 +16,9 @@ public class TileScript : MonoBehaviour, IPointerClickHandler
             OnThisTileObject = TMananger.instance.StartPieces[0];
             OnThisTileObject.transform.position = transform.position;
 
+            //김현준이 추가한 코드
+            EnemySpawnManager.Instance.TileList.Remove(transform);
+
             OnThisTileObject.SetActive(true);
             PlayerPieces piece = OnThisTileObject.GetComponent<PlayerPieces>();
             piece.pieceIndex = index;

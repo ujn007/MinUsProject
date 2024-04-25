@@ -65,7 +65,6 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     public void HitPiece(int damage)
     {
         pieceHP -= damage;
-        
     }
 
     public void LevelUp()

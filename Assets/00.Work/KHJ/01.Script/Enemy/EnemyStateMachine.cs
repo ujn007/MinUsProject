@@ -27,4 +27,9 @@ public class EnemyStateMachine<T> where T : Enum
     {
         StateDictionary.Add(stateEnum, enemyState);
     }
+
+    public EnemyState<T> GetState(T stateEnum)
+    {
+        return StateDictionary[stateEnum];
+    }
 }

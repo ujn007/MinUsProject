@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,7 +11,6 @@ public abstract class Enemy : MonoBehaviour
     public float checkRadius;
 
     [Header("LayerMask")]
-    public LayerMask tileMask;
     public LayerMask whatIsPlayer;
 
     public List<Transform> targets = new List<Transform>();
@@ -23,7 +23,7 @@ public abstract class Enemy : MonoBehaviour
         playerPieces = FindObjectsOfType<PlayerPieces>().ToList();
     }
 
-    public void CheckRoad(ref Transform trm, ref LayerMask layer)
+    public void CheckRoad(ref Transform trm, ref GameObject obj)
     {
         Vector2[] dirs = {Vector2.up, Vector2.down,
                          Vector2.right, Vector2.left};
@@ -37,9 +37,9 @@ public abstract class Enemy : MonoBehaviour
         foreach (Vector2 dir in dirs)
         {
             roadCol = Physics2D.OverlapCircle(transform.position + (Vector3)dir * checkMoveDir, checkRadius);
-            
+
             if (roadCol == null) continue;
-            
+
             float distance = Vector3.Distance(roadCol.transform.position, minPlayer.position);
             if (distance < minDistance)
             {
@@ -49,7 +49,7 @@ public abstract class Enemy : MonoBehaviour
         }
 
         trm = closestRoad;
-        layer = closestRoad.gameObject.layer;
+        obj = closestRoad.gameObject;
     }
 
     private Transform MinPlayerDis()
@@ -68,5 +68,10 @@ public abstract class Enemy : MonoBehaviour
         }
 
         return closestPlayer;
+    }
+
+    public Tween MoveTween(Vector3 movePos, float time, Ease ease = Ease.Linear)
+    {
+        return transform.DOMove(movePos, time).SetEase(ease);
     }
 }
