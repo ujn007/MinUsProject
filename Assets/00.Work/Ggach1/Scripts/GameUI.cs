@@ -27,7 +27,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _leadershipText;
     int _leadership = 0;
 
-    TextMeshProUGUI _leftWaveText;
+    [SerializeField] TextMeshProUGUI _leftWaveText;
     int _leftWave = 0;
 
     [SerializeField] TextMeshProUGUI _PC1LevelText;
