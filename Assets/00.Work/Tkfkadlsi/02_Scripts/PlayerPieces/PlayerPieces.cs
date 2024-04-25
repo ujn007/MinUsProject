@@ -12,6 +12,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     protected MovePoint[] movePoints;
     protected GameObject movePointTrm;
     protected GameUI pieceManager;
+    protected PieceSkill mySkill;
 
     public int SubEnergy { get; protected set; }
     public int pieceLevel { get; protected set; }
@@ -24,6 +25,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         selectPieces = FindObjectOfType<SelectPieces>();
         playerEnergy = FindObjectOfType<PlayerEnergy>();
         pieceManager = FindObjectOfType<GameUI>();
+        mySkill = GetComponent<PieceSkill>();
         SetMovePoint(pieceLevel);
     }
 
@@ -77,7 +79,13 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     public void HitPiece(int damage)
     {
         pieceHP -= damage;
-        
+        pieceManager.PChpchange(this);
+    }
+
+    public void HealPiece(int healValue)
+    {
+        pieceHP += healValue;
+        pieceManager.PChpchange(this);
     }
 
     public void LevelUp()
@@ -88,7 +96,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         SetSubEnergy(pieceLevel);
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {

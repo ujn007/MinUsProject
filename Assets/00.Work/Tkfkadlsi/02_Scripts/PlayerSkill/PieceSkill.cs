@@ -4,14 +4,18 @@ using UnityEngine;
 
 public abstract class PieceSkill : MonoBehaviour
 {
-    private bool isSkillOn = false;
+    private const int maxLevel = 2;
+    protected PlayerPieces _mybody;
 
-    public bool GetIsSkillOn()
+    private void Awake()
     {
-        return isSkillOn;
+        _mybody = GetComponent<PlayerPieces>();
+    }
+
+    public bool GetIsSkillOn(int level)
+    {
+        return level == maxLevel;
     }
 
     public abstract void Skill();
-
-
 }
