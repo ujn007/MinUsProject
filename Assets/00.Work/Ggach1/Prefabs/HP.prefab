@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9129175740151911237}
   - component: {fileID: 155583474688848493}
   m_Layer: 5
-  m_Name: P1HP_3
+  m_Name: PCHP_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 366677292417006198}
   - component: {fileID: 6462041398066277212}
   m_Layer: 5
-  m_Name: P1HP_2
+  m_Name: PCHP_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 3421495382363511402}
   - component: {fileID: 6851256383870747307}
   m_Layer: 5
-  m_Name: P1HP_1
+  m_Name: PCHP_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
