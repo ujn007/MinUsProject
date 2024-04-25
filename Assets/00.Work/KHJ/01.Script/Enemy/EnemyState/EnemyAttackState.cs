@@ -2,11 +2,11 @@ using DG.Tweening;
 using UnityEditor;
 using UnityEngine;
 
-public class NormalAttackState : EnemyState<NormalStateEnum>
+public class EnemyAttackState : EnemyState
 {
-    private EnemyState<NormalStateEnum> moveState;
+    private EnemyState moveState;
 
-    public NormalAttackState(Enemy _enemy, EnemyStateMachine<NormalStateEnum> _stateMachine) : base(_enemy, _stateMachine)
+    public EnemyAttackState(Enemy _enemy, EnemyStateMachine _stateMachine) : base(_enemy, _stateMachine)
     {
     }
 
@@ -14,7 +14,8 @@ public class NormalAttackState : EnemyState<NormalStateEnum>
     {
         base.Enter();
 
-        moveState = stateMachine.GetState(NormalStateEnum.Move);
+        moveState = stateMachine.GetState(EnemyStateEnum.Move);
+        Debug.Log(moveState);
         
         Attack();
     }

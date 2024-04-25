@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour
+public class Enemy : EnemyGroup
 {
+    [Header("SO")]
+    public EnemyTpyeSO so;
+
     [Header("Setting values")]
     public float checkMoveDir = 1.3f;
-    public float checkDistance;
     public float checkRadius;
 
     [Header("LayerMask")]
@@ -15,18 +17,44 @@ public abstract class Enemy : MonoBehaviour
 
     public List<Transform> targets = new List<Transform>();
     [HideInInspector] public List<PlayerPieces> playerPieces = new List<PlayerPieces>();
+    [HideInInspector] public List<EnemyTpyeSO> enemySOList = new List<EnemyTpyeSO>();
+
+    public EnemyStateMachine StateMachine { get; private set; }
+    public Transform ownerTrm;
 
     private float min = Mathf.Infinity;
 
-    public virtual void Awake()
+    private void Init()
     {
         playerPieces = FindObjectsOfType<PlayerPieces>().ToList();
     }
 
+    public virtual void Awake()
+    {
+        Init();
+
+        ownerTrm = transform;
+
+        StateMachine = new EnemyStateMachine();
+
+        StateMachine.AddState(EnemyStateEnum.Stay, new EnemyStayState(this, StateMachine));
+        StateMachine.AddState(EnemyStateEnum.Move, new EnemyMoveState(this, StateMachine));
+        StateMachine.AddState(EnemyStateEnum.Attack, new EnemyAttackState(this, StateMachine));
+    }
+
+    private void Start()
+    {
+        StateMachine.Initialize(EnemyStateEnum.Stay, this);
+    }
+
+    private void Update()
+    {
+        StateMachine.CurrentState.UpdateState();
+    }
+
     public void CheckRoad(ref Transform trm, ref GameObject obj)
     {
-        Vector2[] dirs = {Vector2.up, Vector2.down,
-                         Vector2.right, Vector2.left};
+        Vector2[] dirs = so.moveDir;
 
         Transform closestRoad = null;
         Collider2D roadCol = null;
@@ -43,6 +71,8 @@ public abstract class Enemy : MonoBehaviour
             float distance = Vector3.Distance(roadCol.transform.position, minPlayer.position);
             if (distance < minDistance)
             {
+                //if (roadCol.gameObject.layer == 8 && roadCol.transform.root != transform) continue;
+
                 minDistance = distance;
                 closestRoad = roadCol.transform;
             }

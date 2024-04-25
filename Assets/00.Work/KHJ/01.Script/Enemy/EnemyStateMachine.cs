@@ -1,34 +1,47 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
-public class EnemyStateMachine<T> where T : Enum
+public enum EnemyStateEnum
 {
-    public EnemyState<T> CurrentState { get; private set; }
-    public Dictionary<T, EnemyState<T>> StateDictionary = new Dictionary<T, EnemyState<T>>();
+    Stay,
+    Move,
+    Attack
+}
+
+public class EnemyStateMachine
+{
+    public EnemyState CurrentState { get; private set; }
+    public Dictionary<EnemyStateEnum, EnemyState> StateDictionary;
 
     public Enemy enemyBase;
 
-    public void Initialize(T startState, Enemy enemy)
+    public EnemyStateMachine()
+    {
+        StateDictionary = new Dictionary<EnemyStateEnum, EnemyState>();
+    }
+
+    public void Initialize(EnemyStateEnum startState, Enemy enemy)
     {
         CurrentState = StateDictionary[startState];
         CurrentState.Enter();
         enemyBase = enemy;
     }
 
-    public void ChangeState(T newState, bool forceMode = false)
+    public void ChangeState(EnemyStateEnum newState, bool forceMode = false)
     {
         CurrentState.Exit();
         CurrentState = StateDictionary[newState];
         CurrentState.Enter();
     }
 
-    public void AddState(T stateEnum, EnemyState<T> enemyState)
+    public void AddState(EnemyStateEnum stateEnum, EnemyState enemyState)
     {
         StateDictionary.Add(stateEnum, enemyState);
     }
 
-    public EnemyState<T> GetState(T stateEnum)
+    public EnemyState GetState(EnemyStateEnum stateEnum)
     {
         return StateDictionary[stateEnum];
     }

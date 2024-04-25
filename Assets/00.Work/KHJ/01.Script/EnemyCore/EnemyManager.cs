@@ -2,14 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EnemySpawnManager : MonoSingleton<EnemySpawnManager>
+public class EnemyManager : MonoSingleton<EnemyManager>
 {
     [Header("Tile")]
     public TMananger TManager;
     [SerializeField] private Transform _tileParent;
 
     [Header("EnemySetting")]
-    [SerializeField] private Transform _enemyPF;
+    [SerializeField] private List<Transform> _enemyPF;
     [SerializeField] private int _enemySpawnCount;
     
     private List<Transform> _tileList;
@@ -23,10 +23,10 @@ public class EnemySpawnManager : MonoSingleton<EnemySpawnManager>
     public void SpawnEenemy()
     {
 
-        for (int i = 0; i < _enemySpawnCount; i++)
+        for (int i = 0; i < _enemyPF.Count; i++)
         {
             int randTrm = Random.Range(0, _tileList.Count);
-            Transform enemy = Instantiate(_enemyPF, transform.position, Quaternion.identity);
+            Transform enemy = Instantiate(_enemyPF[i], transform.position, Quaternion.identity);
             enemy.position = _tileList[randTrm].transform.position;
 
             _tileList.RemoveAt(randTrm);
