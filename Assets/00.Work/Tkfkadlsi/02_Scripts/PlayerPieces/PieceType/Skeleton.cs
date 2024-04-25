@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Rad : PlayerPieces
+public class Skeleton : PlayerPieces
 {
     private void Awake()
     {
@@ -23,11 +23,12 @@ public class Rad : PlayerPieces
             return;
         }
     }
+
     protected override void InitPiece()
     {
-        SubEnergy = 1;
+        SubEnergy = 2;
         pieceLevel = 0;
         pieceEXP = 0;
-        pieceIndex = 1;
+        pieceIndex = 2;
     }
 }

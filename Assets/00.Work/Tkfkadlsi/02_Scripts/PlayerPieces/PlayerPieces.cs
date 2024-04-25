@@ -32,10 +32,22 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     private void SetMovePoint(int level)
     {
         Destroy(movePointTrm);
-        GameObject newMovepoints = Instantiate(techLineSO.movePoints[level], transform.position, Quaternion.identity);
+        GameObject newMovepoints = Instantiate(techLineSO.movePoints[level], transform);
         movePointTrm = newMovepoints;
         movePointTrm.SetActive(false);
         movePoints = newMovepoints.GetComponentsInChildren<MovePoint>();
+    }
+
+    private void SetVisual(int level)
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (techLineSO.visual[level] != null)
+            spriteRenderer.sprite = techLineSO.visual[level];
+    }
+
+    private void SetSubEnergy(int level)
+    {
+        SubEnergy = techLineSO.ConsumptionValue[level];
     }
 
     public void MovePointONOFF(bool compulsionOff = false)
@@ -71,6 +83,8 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     {
         pieceLevel++;
         SetMovePoint(pieceLevel);
+        SetVisual(pieceLevel);
+        SetSubEnergy(pieceLevel);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

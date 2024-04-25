@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Knight : PlayerPieces
+public class Mimic : PlayerPieces
 {
     private void Awake()
     {
@@ -23,12 +23,11 @@ public class Knight : PlayerPieces
             return;
         }
     }
-
     protected override void InitPiece()
     {
-        SubEnergy = 2;
+        SubEnergy = 1;
         pieceLevel = 0;
         pieceEXP = 0;
-        pieceIndex = 2;
+        pieceIndex = 1;
     }
 }
