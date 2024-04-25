@@ -33,6 +33,7 @@ public class Zombie : PlayerPieces
         {
             //적 잡기 구현
             pieceManager.PCLevel(1, this);
+            Destroy(collision.gameObject);
             killCount++;
             UseSkill();
         }

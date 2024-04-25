@@ -30,6 +30,7 @@ public class Mimic : PlayerPieces
         {
             //적 잡기 구현
             pieceManager.PCLevel(1, this);
+            Destroy(collision.gameObject);
         }
     }
 
