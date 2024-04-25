@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.VersionControl; //텍스트 건드림
+using UnityEditor.VersionControl;
+using UnityEngine.UI; //텍스트 건드림
 
 public enum HPColor
 {
-    Red = 0,
-    Green = 1,
-    Purple = 2
+    Black = 0,
+    Red = 1,
+    Green = 2,
+    Purple = 3
 }
 
 public class GameUI : MonoBehaviour
@@ -16,13 +18,10 @@ public class GameUI : MonoBehaviour
     [SerializeField] private List<Color> hpColor = new List<Color>();
     public Dictionary<HPColor, Color> HPColorDic = new Dictionary<HPColor, Color>();
 
-    private void Start()
-    {
-        for(int i = 0; i < 3; i++)
-        {
-            HPColorDic.Add((HPColor)i, hpColor[i]); 
-        }
-    }
+    public GameObject _HpPieces0;
+    public GameObject _HpPieces1;
+    public GameObject _HpPieces2;
+
 
     TextMeshProUGUI _wave;
     TextMeshProUGUI _leadershipText;
@@ -34,6 +33,13 @@ public class GameUI : MonoBehaviour
     TextMeshProUGUI _PC1LevelText;
     TextMeshProUGUI _PC2LevelText;
     TextMeshProUGUI _PC3LevelText;
+    private void Start()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            HPColorDic.Add((HPColor)i, hpColor[i]); 
+        }
+    }
 
     public void Resetleadership(int _leadership)
     {
@@ -86,6 +92,49 @@ public class GameUI : MonoBehaviour
 
     private void PChpchange(PlayerPieces _Piece)
     {
+        GameObject currentHP = null;
 
+        switch (_Piece.pieceIndex)
+        {
+            case 0:
+                currentHP = _HpPieces0;
+                break;
+            case 1:
+                currentHP = _HpPieces1;
+                break;
+            case 2:
+                currentHP = _HpPieces2;
+                break;
+        }
+
+        Image[] hpimages = currentHP.GetComponentsInChildren<Image>();
+
+        int hp = _Piece.pieceHP;
+
+        int index = hpimages.Length;
+
+        //foreach 써서 전부다 black으로
+        foreach (Image _image in hpimages)
+        {
+            _image.color = HPColorDic[HPColor.Black];
+        }
+
+        for (int i = 0; i < hp; i++)
+        {
+            Image hpimage = hpimages[i % 3];
+
+            if(hpimage.color == HPColorDic[HPColor.Black])
+            {
+                hpimage.color = HPColorDic[HPColor.Red];
+            }
+            else if (hpimage.color == HPColorDic[HPColor.Red])
+            {
+                hpimage.color = HPColorDic[HPColor.Green];
+            }
+            else if (hpimage.color == HPColorDic[HPColor.Green])
+            {
+                hpimage.color = HPColorDic[HPColor.Purple];
+            }
+        }
     }
 }
