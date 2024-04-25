@@ -45,7 +45,10 @@ public class MovePoint : MonoBehaviour, IPointerClickHandler
 
         rootPiece.transform.position = transform.position;
         rootPiece.MovePiece();
-        rootPiece.selectPieces.MoveSelectPiece();
+        if (rootPiece.playerEnergy.GetEnergy() - rootPiece.SubEnergy < 0)
+        {
+            rootPiece.MovePointONOFF(true);
+        }
     }
 
     private bool Clamp(float min, float max, float value)

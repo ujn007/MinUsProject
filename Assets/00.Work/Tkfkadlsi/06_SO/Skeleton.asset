@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movePoints:
   - {fileID: 6343826270308397481, guid: aae0a9750cd25384d9bbc5468c6ce1dd, type: 3}
+  - {fileID: 6343826270308397481, guid: aae0a9750cd25384d9bbc5468c6ce1dd, type: 3}
   LevelUpCondition: 
   visual: []
   level3_animator: {fileID: 0}
+  ConsumptionValue: 

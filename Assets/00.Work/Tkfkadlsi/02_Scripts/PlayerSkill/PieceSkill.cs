@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class PieceSkill : MonoBehaviour
 {
-    private const int maxLevel = 2;
+    private const int maxLevel = 1;
     protected PlayerPieces _mybody;
 
     private void Awake()

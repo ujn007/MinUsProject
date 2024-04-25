@@ -24,10 +24,29 @@ public class Skeleton : PlayerPieces
         }
     }
 
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            //적 잡기 구현
+            pieceManager.PCLevel(1, this);
+            UseSkill();
+        }
+    }
+
+    private void UseSkill()
+    {
+        if (!mySkill.GetIsSkillOn(pieceLevel)) return;
+        mySkill.Skill();
+    }
+
     protected override void InitPiece()
     {
         SubEnergy = 2;
-        pieceLevel = 0;
+        //pieceLevel = 0;
+        //디버그용
+        pieceLevel = 1;
+        //디버그용
         pieceEXP = 0;
         pieceIndex = 2;
     }

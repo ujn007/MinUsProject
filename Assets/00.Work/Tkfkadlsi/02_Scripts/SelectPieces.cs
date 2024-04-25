@@ -5,9 +5,12 @@ using UnityEngine;
 public class SelectPieces : MonoBehaviour
 {
     private GameObject selectedPiece;
+    public bool isLockSelectPiece { get; private set; } = false;
 
     public void SelectNewPiece(GameObject piece)
     {
+        if (isLockSelectPiece) return;
+
         if(selectedPiece != null)
         {
             if(selectedPiece != piece)
@@ -18,6 +21,17 @@ public class SelectPieces : MonoBehaviour
         }
         
         selectedPiece = piece;
+    }
+
+    public void LockPiece(GameObject piece)
+    {
+        isLockSelectPiece = true;
+        selectedPiece = piece;
+    }
+
+    public void UnLockPiece()
+    {
+        isLockSelectPiece = false;
     }
 
     public void MoveSelectPiece()

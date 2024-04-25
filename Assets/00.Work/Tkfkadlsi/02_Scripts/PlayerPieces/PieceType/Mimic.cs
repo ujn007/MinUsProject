@@ -23,6 +23,16 @@ public class Mimic : PlayerPieces
             return;
         }
     }
+
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            //적 잡기 구현
+            pieceManager.PCLevel(1, this);
+        }
+    }
+
     protected override void InitPiece()
     {
         SubEnergy = 1;

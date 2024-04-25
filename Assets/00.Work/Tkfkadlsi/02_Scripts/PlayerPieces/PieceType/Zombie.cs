@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Zombie : PlayerPieces
 {
-    private int killcount;
+    private int killCount;
+    private const int activeCount = 3;
 
     private void Awake()
     {
@@ -28,7 +29,23 @@ public class Zombie : PlayerPieces
 
     public override void OnTriggerEnter2D(Collider2D collision)
     {
-        base.OnTriggerEnter2D(collision);
+        if (collision.CompareTag("Enemy"))
+        {
+            //적 잡기 구현
+            pieceManager.PCLevel(1, this);
+            killCount++;
+            UseSkill();
+        }
+    }
+
+    private void UseSkill()
+    {
+        if (!mySkill.GetIsSkillOn(pieceLevel))
+            return;
+        if (killCount < activeCount)
+            return;
+
+        killCount -= activeCount;
         mySkill.Skill();
     }
 
