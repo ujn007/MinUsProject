@@ -19,6 +19,11 @@ public class PlayerEnergy : MonoBehaviour
         return energy;
     }
 
+    public void PlusEnergy(int plusEnergy)
+    {
+        energy += plusEnergy;
+    }
+
     public void MinusEnergy(int value)
     {
         energy -= value;

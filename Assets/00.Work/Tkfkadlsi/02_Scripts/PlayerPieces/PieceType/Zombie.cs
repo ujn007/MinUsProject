@@ -10,7 +10,7 @@ public class Zombie : PlayerPieces
 
     private void Awake()
     {
-        InitPiece();
+        Init();
     }
 
     public override void OnPointerClick(PointerEventData eventData)
@@ -50,11 +50,9 @@ public class Zombie : PlayerPieces
         mySkill.Skill();
     }
 
-    protected override void InitPiece()
+    protected override void Init()
     {
-        SubEnergy = 1;
-        pieceLevel = 0;
-        pieceEXP = 0;
+        base.Init();
         pieceIndex = 0;
     }
 }

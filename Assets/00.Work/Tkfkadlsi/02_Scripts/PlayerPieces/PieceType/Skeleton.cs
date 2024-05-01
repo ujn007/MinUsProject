@@ -7,7 +7,7 @@ public class Skeleton : PlayerPieces
 {
     private void Awake()
     {
-        InitPiece();
+        Init();
     }
 
     public override void OnPointerClick(PointerEventData eventData)
@@ -41,14 +41,9 @@ public class Skeleton : PlayerPieces
         mySkill.Skill();
     }
 
-    protected override void InitPiece()
+    protected override void Init()
     {
-        SubEnergy = 2;
-        //pieceLevel = 0;
-        //디버그용
-        pieceLevel = 1;
-        //디버그용
-        pieceEXP = 0;
+        base.Init();
         pieceIndex = 2;
     }
 }

@@ -29,8 +29,6 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         SetMovePoint(pieceLevel);
     }
 
-    protected abstract void InitPiece();
-
     private void SetMovePoint(int level)
     {
         Destroy(movePointTrm);
@@ -54,16 +52,6 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 
     public void MovePointONOFF(bool compulsionOff = false)
     {
-        if(selectPieces.isLockSelectPiece)
-        {
-            movePointTrm.SetActive(true);
-            foreach (MovePoint movePoint in movePoints)
-            {
-                movePoint.SelectedParentPiece();
-            }
-            return;
-        }
-
         if (compulsionOff)
         {
             movePointTrm.SetActive(false);
@@ -83,11 +71,6 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 
     public void MovePiece()
     {
-        if (selectPieces.isLockSelectPiece)
-        {
-            selectPieces.UnLockPiece();
-            return;
-        }
         playerEnergy.MinusEnergy(SubEnergy);
     }
 
@@ -106,6 +89,15 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     public void LevelUp()
     {
         pieceLevel++;
+        SetMovePoint(pieceLevel);
+        SetVisual(pieceLevel);
+        SetSubEnergy(pieceLevel);
+    }
+
+    protected virtual void Init()
+    {
+        pieceLevel = 0;
+        pieceEXP = 0;
         SetMovePoint(pieceLevel);
         SetVisual(pieceLevel);
         SetSubEnergy(pieceLevel);
