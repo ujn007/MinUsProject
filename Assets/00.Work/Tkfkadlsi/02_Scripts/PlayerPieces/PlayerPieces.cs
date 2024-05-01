@@ -108,5 +108,5 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         SetSubEnergy(pieceLevel);
     }
 
-    public abstract void OnTriggerEnter2D(Collider2D collision);
+    public abstract void OnCollision2DEnter(Collider2D collision);
 }

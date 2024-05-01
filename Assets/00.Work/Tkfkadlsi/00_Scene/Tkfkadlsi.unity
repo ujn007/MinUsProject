@@ -1860,12 +1860,12 @@ MonoBehaviour:
   _HpPieces0: {fileID: 1253991891}
   _HpPieces1: {fileID: 1244029785}
   _HpPieces2: {fileID: 1463151049}
-  _wave: {fileID: 0}
-  _leadershipText: {fileID: 0}
-  _leftWaveText: {fileID: 0}
-  _PC1LevelText: {fileID: 0}
-  _PC2LevelText: {fileID: 0}
-  _PC3LevelText: {fileID: 0}
+  _wave: {fileID: 1177896862}
+  _leadershipText: {fileID: 118529415}
+  _leftWaveText: {fileID: 1413606437}
+  _PC1LevelText: {fileID: 1309236876}
+  _PC2LevelText: {fileID: 1991336215}
+  _PC3LevelText: {fileID: 700904210}
 --- !u!114 &1350792957
 MonoBehaviour:
   m_ObjectHideFlags: 0

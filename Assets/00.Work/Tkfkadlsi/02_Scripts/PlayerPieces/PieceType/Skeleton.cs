@@ -24,7 +24,7 @@ public class Skeleton : PlayerPieces
         }
     }
 
-    public override void OnTriggerEnter2D(Collider2D collision)
+    public override void OnCollision2DEnter(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {

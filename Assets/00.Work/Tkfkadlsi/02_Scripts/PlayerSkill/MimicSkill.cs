@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MimicSkill : PieceSkill
 {
+    [SerializeField] private GameObject effectPrefab;
     public override void Skill()
     {
         
