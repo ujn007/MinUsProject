@@ -7,7 +7,7 @@ public class Mimic : PlayerPieces
 {
     private void Awake()
     {
-        InitPiece();
+        Init();
     }
 
     public override void OnPointerClick(PointerEventData eventData)
@@ -34,11 +34,9 @@ public class Mimic : PlayerPieces
         }
     }
 
-    protected override void InitPiece()
+    protected override void Init()
     {
-        SubEnergy = 1;
-        pieceLevel = 0;
-        pieceEXP = 0;
+        base.Init();
         pieceIndex = 1;
     }
 }
