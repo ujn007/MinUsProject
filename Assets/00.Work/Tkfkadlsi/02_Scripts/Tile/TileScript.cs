@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class TileScript : MonoBehaviour, IPointerClickHandler
 {
     public GameObject OnThisTileObject;
-    private int index = 1;
 
 
     public void OnPointerClick(PointerEventData eventData)
@@ -21,8 +20,6 @@ public class TileScript : MonoBehaviour, IPointerClickHandler
 
             OnThisTileObject.SetActive(true);
             PlayerPieces piece = OnThisTileObject.GetComponent<PlayerPieces>();
-            piece.pieceIndex = index;
-            index++;
             TMananger.instance.StartPieces.RemoveAt(0);
         }
     }

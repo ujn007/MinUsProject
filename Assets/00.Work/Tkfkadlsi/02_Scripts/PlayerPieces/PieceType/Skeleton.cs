@@ -24,11 +24,10 @@ public class Skeleton : PlayerPieces
         }
     }
 
-    public override void OnCollision2DEnter(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if(collision.collider.CompareTag("Enemy"))
         {
-            //적 잡기 구현
             pieceManager.PCLevel(1, this);
             Destroy(collision.gameObject);
             UseSkill();
@@ -43,7 +42,7 @@ public class Skeleton : PlayerPieces
 
     protected override void Init()
     {
+        pieceIndex = 3;
         base.Init();
-        pieceIndex = 2;
     }
 }

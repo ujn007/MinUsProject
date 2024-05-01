@@ -26,7 +26,6 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         playerEnergy = FindObjectOfType<PlayerEnergy>();
         pieceManager = FindObjectOfType<GameUI>();
         mySkill = GetComponent<PieceSkill>();
-        SetMovePoint(pieceLevel);
     }
 
     private void SetMovePoint(int level)
@@ -107,6 +106,4 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         SetVisual(pieceLevel);
         SetSubEnergy(pieceLevel);
     }
-
-    public abstract void OnCollision2DEnter(Collider2D collision);
 }

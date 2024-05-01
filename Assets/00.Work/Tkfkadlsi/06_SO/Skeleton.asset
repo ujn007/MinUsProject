@@ -15,8 +15,9 @@ MonoBehaviour:
   movePoints:
   - {fileID: 6343826270308397481, guid: aae0a9750cd25384d9bbc5468c6ce1dd, type: 3}
   - {fileID: 6343826270308397481, guid: aae0a9750cd25384d9bbc5468c6ce1dd, type: 3}
-  LevelUpCondition: 04000000
+  LevelUpCondition: 0100000001000000
   visual:
   - {fileID: 21300000, guid: 00046d43fd7b9674a96be9a0eb289222, type: 3}
+  - {fileID: -1023756035, guid: 7ff14c66d23e33b47979cd7599bb4d0f, type: 3}
   level3_animator: {fileID: 0}
-  ConsumptionValue: 02000000
+  ConsumptionValue: 0200000002000000
