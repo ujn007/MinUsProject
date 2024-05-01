@@ -10,6 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b24289cfdae2f984598dcc743f174b57, type: 3}
-  m_Name: CrossAndXenemy
+  m_Name: CrossAndXEnemy
   m_EditorClassIdentifier: 
-  moveDir: []
+  moveDir:
+  - {x: 1, y: 1}
+  - {x: 1, y: 0}
+  - {x: 1, y: -1}
+  - {x: -1, y: 1}
+  - {x: -1, y: 0}
+  - {x: -1, y: -1}
+  - {x: 0, y: 1}
+  - {x: 0, y: -1}
+  moveTrm: {fileID: 0}

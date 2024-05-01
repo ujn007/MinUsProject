@@ -26,8 +26,9 @@ public class EnemyManager : MonoSingleton<EnemyManager>
         for (int i = 0; i < _enemyPF.Count; i++)
         {
             int randTrm = Random.Range(0, _tileList.Count);
-            Transform enemy = Instantiate(_enemyPF[i], transform.position, Quaternion.identity);
-            enemy.position = _tileList[randTrm].transform.position;
+            Transform enemy = Instantiate(_enemyPF[i], Vector3.zero, Quaternion.identity);
+            enemy.name = _enemyPF[i].name;
+            enemy.position = _tileList[randTrm].transform.position + Vector3.forward;
 
             _tileList.RemoveAt(randTrm);
         }

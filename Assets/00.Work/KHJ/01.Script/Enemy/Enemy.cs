@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class Enemy : EnemyGroup
@@ -8,15 +9,14 @@ public class Enemy : EnemyGroup
     [Header("SO")]
     public EnemyTpyeSO so;
 
-    [Header("Setting values")]
+    [Header("Setting Enemy")]
+    public int damage;
     public float checkMoveDir = 1.3f;
     public float checkRadius;
 
     [Header("LayerMask")]
     public LayerMask whatIsPlayer;
 
-    public List<Transform> targets = new List<Transform>();
-    [HideInInspector] public List<PlayerPieces> playerPieces = new List<PlayerPieces>();
     [HideInInspector] public List<EnemyTpyeSO> enemySOList = new List<EnemyTpyeSO>();
 
     public EnemyStateMachine StateMachine { get; private set; }
@@ -24,15 +24,8 @@ public class Enemy : EnemyGroup
 
     private float min = Mathf.Infinity;
 
-    private void Init()
+    public void Awake()
     {
-        playerPieces = FindObjectsOfType<PlayerPieces>().ToList();
-    }
-
-    public virtual void Awake()
-    {
-        Init();
-
         ownerTrm = transform;
 
         StateMachine = new EnemyStateMachine();
@@ -42,9 +35,11 @@ public class Enemy : EnemyGroup
         StateMachine.AddState(EnemyStateEnum.Attack, new EnemyAttackState(this, StateMachine));
     }
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         StateMachine.Initialize(EnemyStateEnum.Stay, this);
+        print(CheckMinEnemy());
     }
 
     private void Update()
@@ -66,13 +61,11 @@ public class Enemy : EnemyGroup
         {
             roadCol = Physics2D.OverlapCircle(transform.position + (Vector3)dir * checkMoveDir, checkRadius);
 
-            if (roadCol == null) continue;
+            if (roadCol == null || roadCol.gameObject.layer == 8) continue;
 
             float distance = Vector3.Distance(roadCol.transform.position, minPlayer.position);
             if (distance < minDistance)
             {
-                //if (roadCol.gameObject.layer == 8 && roadCol.transform.root != transform) continue;
-
                 minDistance = distance;
                 closestRoad = roadCol.transform;
             }
