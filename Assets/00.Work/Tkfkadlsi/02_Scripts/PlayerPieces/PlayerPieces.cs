@@ -80,6 +80,11 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         pieceManager.PChpchange(this);
     }
 
+    public int GetHP()
+    {
+        return pieceHP;
+    }
+
     public void HealPiece(int healValue)
     {
         pieceHP += healValue;
