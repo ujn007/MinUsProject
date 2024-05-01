@@ -16,6 +16,7 @@ public abstract class EnemyGroup : MonoBehaviour
     public string CheckMinEnemy()
     {
         float mindis = float.MaxValue;
+        float minHP = float.MaxValue;
         Enemy enemy = null;
 
         for (int i = 0; i < playerPieces.Count; i++)
@@ -28,10 +29,17 @@ public abstract class EnemyGroup : MonoBehaviour
                 {
                     if (dis == mindis)
                     {
-                        
+                        if (minHP <= playerPieces[i].GetHP())
+                        {
+                            minHP = playerPieces[i].GetHP();
+
+                        }
                     }
-                    mindis = dis;
-                    enemy = enemyList[j];
+                    else
+                    {
+                        mindis = dis;
+                        enemy = enemyList[j];
+                    }
                 }
             }
         }
@@ -39,8 +47,8 @@ public abstract class EnemyGroup : MonoBehaviour
         return enemy.name;
     }
 
-    private void CheckLowHealth()
+    private void CheckLowHealth(out float midDis)
     {
-
+        midDis = 1;
     }
 }
