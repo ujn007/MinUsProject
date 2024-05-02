@@ -23,7 +23,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     public int pieceIndex { get; set; }
     public int pieceEXP { get; set; }
 
-    private void Start()
+    private void Awake()
     {
         selectPieces = FindObjectOfType<SelectPieces>();
         playerEnergy = FindObjectOfType<PlayerEnergy>();
@@ -46,8 +46,10 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     private void SetVisual(int level)
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (techLineSO.visual[level] != null)
-            spriteRenderer.sprite = techLineSO.visual[level];
+        Debug.Log(level);
+        Debug.Log(techLineSO.visual[level]);
+        Debug.Log(spriteRenderer);
+        spriteRenderer.sprite = techLineSO.visual[level];
     }
 
     private void SetSubEnergy(int level)
@@ -103,13 +105,13 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         SetMovePoint(pieceLevel);
         SetVisual(pieceLevel);
         SetSubEnergy(pieceLevel);
-        pieceManager.Setsprite(techLineSO.visual[pieceLevel]);
+        pieceManager.Setsprite(techLineSO.visual[pieceLevel], pieceIndex);
         Evolution();
     }
 
     private void Evolution()
     {
-        if(pieceLevel == maxLevel)
+        if (pieceLevel == maxLevel)
         {
             anim.SetTrigger("MaxLevel");
         }
@@ -119,11 +121,12 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     {
         pieceLevel = 0;
         pieceEXP = 0;
-        pieceHP = 3;
+        pieceHP = techLineSO.Initial_Health;
         SetMovePoint(pieceLevel);
         SetVisual(pieceLevel);
         SetSubEnergy(pieceLevel);
-        pieceManager.Setsprite(techLineSO.visual[pieceLevel]);
+        pieceManager.Setsprite(techLineSO.visual[pieceLevel], pieceIndex);
         pieceManager.Setleadership(playerEnergy.GetEnergy());
+        pieceManager.PChpchange(this);
     }
 }

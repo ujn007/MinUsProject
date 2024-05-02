@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Skeleton : PlayerPieces
 {
-    private void Awake()
+    private void Start()
     {
         Init();
     }
