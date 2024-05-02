@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Mimic : PlayerPieces
 {
+    private int moveCount = 0;
+
     private void Awake()
     {
         Init();
@@ -28,8 +30,28 @@ public class Mimic : PlayerPieces
     {
         if (collision.collider.CompareTag("Enemy"))
         {
-            pieceManager.PCLevel(1, this);
+            if (pieceLevel != maxLevel)
+            {
+                pieceManager.PCLevel(1, this);
+            }
             Destroy(collision.gameObject);
+        }
+    }
+
+    public override void MovePiece()
+    {
+        base.MovePiece();
+        UseSkill();
+    }
+
+    private void UseSkill()
+    {
+        if (!mySkill.GetIsSkillOn(pieceLevel)) { return; }
+        moveCount++;
+        if(moveCount == 2)
+        {
+            moveCount = 0;
+            mySkill.Skill();
         }
     }
 

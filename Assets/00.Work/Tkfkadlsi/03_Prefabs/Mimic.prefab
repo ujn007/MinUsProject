@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5120414234842968146}
   - component: {fileID: 260939614717178548}
   - component: {fileID: 8083505017296038149}
+  - component: {fileID: 6814388935829043950}
   - component: {fileID: 4593155533925508409}
   - component: {fileID: -8183353329278505387}
   m_Layer: 7
@@ -150,6 +151,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!95 &6814388935829043950
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7519671940468202681}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7268cc0859984b342979ce27ccef08df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4593155533925508409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +187,7 @@ MonoBehaviour:
   selectPieces: {fileID: 0}
   playerEnergy: {fileID: 0}
   techLineSO: {fileID: 11400000, guid: ac9a09a208ae25c4c887953c5ab89fd3, type: 2}
+  pieceManager: {fileID: 0}
 --- !u!114 &-8183353329278505387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +201,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectPrefab: {fileID: 0}
+  skillPrefab: {fileID: 3453624211362673945, guid: 3239b04ccecc6c14f8036fd95cde26bc, type: 3}

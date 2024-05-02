@@ -28,7 +28,10 @@ public class Skeleton : PlayerPieces
     {
         if(collision.collider.CompareTag("Enemy"))
         {
-            pieceManager.PCLevel(1, this);
+            if(pieceLevel != maxLevel)
+            {
+                pieceManager.PCLevel(1, this);
+            }
             Destroy(collision.gameObject);
             UseSkill();
         }

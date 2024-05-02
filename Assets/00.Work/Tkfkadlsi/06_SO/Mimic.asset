@@ -19,5 +19,6 @@ MonoBehaviour:
   visual:
   - {fileID: 21300000, guid: 77759151cebd8794caddc0d63f450508, type: 3}
   - {fileID: 1189320417, guid: c4cd42296e7f571409febe11d8ded4a3, type: 3}
-  level3_animator: {fileID: 0}
   ConsumptionValue: 0100000001000000
+  Initial_Health: 2
+  Increse_Helath: 2
