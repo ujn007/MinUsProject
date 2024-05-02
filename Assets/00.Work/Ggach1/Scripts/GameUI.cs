@@ -33,6 +33,9 @@ public class GameUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _PC1LevelText;
     [SerializeField] TextMeshProUGUI _PC2LevelText;
     [SerializeField] TextMeshProUGUI _PC3LevelText;
+
+    [SerializeField] public Image _spriteImage;
+
     private void Start()
     {
         for(int i = 0; i < 3; i++)
@@ -137,5 +140,15 @@ public class GameUI : MonoBehaviour
                 hpimage.color = HPColorDic[HPColor.Purple];
             }
         }
+    }
+
+    public void Setsprite(Sprite _sprite)
+    {
+        _spriteImage.sprite = _sprite;
+    }
+
+    public void Setleadership(int _leaderShip)
+    {
+        _leadershipText.text = _leaderShip.ToString();
     }
 }
