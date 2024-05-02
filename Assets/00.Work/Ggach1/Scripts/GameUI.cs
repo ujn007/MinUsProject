@@ -34,7 +34,9 @@ public class GameUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _PC2LevelText;
     [SerializeField] TextMeshProUGUI _PC3LevelText;
 
-    [SerializeField] public Image _spriteImage;
+    [SerializeField] public Image _spriteImage1;
+    [SerializeField] public Image _spriteImage2;
+    [SerializeField] public Image _spriteImage3;
 
     private void Start()
     {
@@ -100,13 +102,13 @@ public class GameUI : MonoBehaviour
 
         switch (_Piece.pieceIndex)
         {
-            case 0:
+            case 1:
                 currentHP = _HpPieces0;
                 break;
-            case 1:
+            case 2:
                 currentHP = _HpPieces1;
                 break;
-            case 2:
+            case 3:
                 currentHP = _HpPieces2;
                 break;
         }
@@ -142,9 +144,20 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    public void Setsprite(Sprite _sprite)
+    public void Setsprite(Sprite _sprite, int index)
     {
-        _spriteImage.sprite = _sprite;
+        switch (index)
+        {
+            case 1:
+                _spriteImage1.sprite = _sprite;
+                break;
+            case 2:
+                _spriteImage2.sprite = _sprite;
+                break;
+            case 3:
+                _spriteImage3.sprite = _sprite;
+                break;
+        }
     }
 
     public void Setleadership(int _leaderShip)
