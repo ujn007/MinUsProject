@@ -77,6 +77,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     public virtual void MovePiece()
     {
         playerEnergy.MinusEnergy(SubEnergy);
+        pieceManager.Setleadership(playerEnergy.GetEnergy());
     }
 
     public void HitPiece(int damage)
@@ -102,6 +103,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         SetMovePoint(pieceLevel);
         SetVisual(pieceLevel);
         SetSubEnergy(pieceLevel);
+        pieceManager.Setsprite(techLineSO.visual[pieceLevel]);
         Evolution();
     }
 
@@ -121,5 +123,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         SetMovePoint(pieceLevel);
         SetVisual(pieceLevel);
         SetSubEnergy(pieceLevel);
+        pieceManager.Setsprite(techLineSO.visual[pieceLevel]);
+        pieceManager.Setleadership(playerEnergy.GetEnergy());
     }
 }

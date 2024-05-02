@@ -15,6 +15,7 @@ public enum GameState
 public class TMananger : MonoBehaviour
 {
     [Header("Public")]
+    public int Turn = 0;
     public List<GameObject> StartPieces = new List<GameObject>();
     public Dictionary<Vector2, TileScript> Pos2Tile = new Dictionary<Vector2, TileScript>();
     public Dictionary<GameObject, TileScript> Obj2Tile = new Dictionary<GameObject, TileScript>();
@@ -30,6 +31,7 @@ public class TMananger : MonoBehaviour
     [SerializeField] private Color tileColor1;
     [SerializeField] private Color tileColor2;
     [SerializeField] private List<GameObject> pieces = new List<GameObject>();
+    [SerializeField] private PlayerEnergy playerEnergy;
 
     public static TMananger instance;
 
@@ -115,6 +117,13 @@ public class TMananger : MonoBehaviour
         }
 
         EnemyManager.Instance.SpawnEenemy();
+        StartPlayerTurn();
+    }
+
+    public void StartPlayerTurn()
+    { 
+        Turn++;
+        playerEnergy.PlusEnergy((Turn / 30) + 3);
         CurrnetState = GameState.PlayerTurn;
     }
 }
