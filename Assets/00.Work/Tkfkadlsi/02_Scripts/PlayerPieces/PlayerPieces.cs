@@ -6,13 +6,16 @@ using UnityEngine.EventSystems;
 
 public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 {
+    public static int maxLevel = 1;
+
     public SelectPieces selectPieces;
     public PlayerEnergy playerEnergy;
     public PieceSO techLineSO;
+    public GameUI pieceManager;
     protected MovePoint[] movePoints;
     protected GameObject movePointTrm;
-    protected GameUI pieceManager;
     protected PieceSkill mySkill;
+    protected Animator anim;
 
     public int SubEnergy { get; protected set; }
     public int pieceLevel { get; protected set; }
@@ -26,7 +29,9 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         playerEnergy = FindObjectOfType<PlayerEnergy>();
         pieceManager = FindObjectOfType<GameUI>();
         mySkill = GetComponent<PieceSkill>();
-        SetMovePoint(pieceLevel);
+        anim = GetComponent<Animator>();
+
+        pieceManager.PCLevel(0, this);
     }
 
     private void SetMovePoint(int level)
@@ -69,7 +74,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 
     public abstract void OnPointerClick(PointerEventData eventData);
 
-    public void MovePiece()
+    public virtual void MovePiece()
     {
         playerEnergy.MinusEnergy(SubEnergy);
     }
@@ -97,16 +102,24 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
         SetMovePoint(pieceLevel);
         SetVisual(pieceLevel);
         SetSubEnergy(pieceLevel);
+        Evolution();
+    }
+
+    private void Evolution()
+    {
+        if(pieceLevel == maxLevel)
+        {
+            anim.SetTrigger("MaxLevel");
+        }
     }
 
     protected virtual void Init()
     {
         pieceLevel = 0;
         pieceEXP = 0;
+        pieceHP = 3;
         SetMovePoint(pieceLevel);
         SetVisual(pieceLevel);
         SetSubEnergy(pieceLevel);
     }
-
-    public abstract void OnTriggerEnter2D(Collider2D collision);
 }

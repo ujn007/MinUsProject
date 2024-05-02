@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Mimic : PlayerPieces
 {
+    private int moveCount = 0;
+
     private void Awake()
     {
         Init();
@@ -24,19 +26,38 @@ public class Mimic : PlayerPieces
         }
     }
 
-    public override void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.collider.CompareTag("Enemy"))
         {
-            //적 잡기 구현
-            pieceManager.PCLevel(1, this);
+            if (pieceLevel != maxLevel)
+            {
+                pieceManager.PCLevel(1, this);
+            }
             Destroy(collision.gameObject);
+        }
+    }
+
+    public override void MovePiece()
+    {
+        base.MovePiece();
+        UseSkill();
+    }
+
+    private void UseSkill()
+    {
+        if (!mySkill.GetIsSkillOn(pieceLevel)) { return; }
+        moveCount++;
+        if(moveCount == 2)
+        {
+            moveCount = 0;
+            mySkill.Skill();
         }
     }
 
     protected override void Init()
     {
+        pieceIndex = 2;
         base.Init();
-        pieceIndex = 1;
     }
 }

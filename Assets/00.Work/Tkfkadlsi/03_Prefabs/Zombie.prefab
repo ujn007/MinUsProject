@@ -10,8 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8224704617524200419}
   - component: {fileID: 5120414234842968146}
+  - component: {fileID: 7295353817203706288}
   - component: {fileID: 8083505017296038149}
+  - component: {fileID: -2557288332068404741}
   - component: {fileID: 4681229510044653065}
+  - component: {fileID: 5034243168248775151}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: Pieces
@@ -86,6 +89,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &7295353817203706288
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7519671940468202681}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &8083505017296038149
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -121,6 +151,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!95 &-2557288332068404741
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7519671940468202681}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3d1f42a88c2f2041b0d7866e25cf5b0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4681229510044653065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,3 +187,15 @@ MonoBehaviour:
   selectPieces: {fileID: 0}
   playerEnergy: {fileID: 0}
   techLineSO: {fileID: 11400000, guid: fc6f36b79bdc68e45a6744282f7185a3, type: 2}
+--- !u!114 &5034243168248775151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7519671940468202681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061f4c15ca8ab9e438f372612011ac82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
