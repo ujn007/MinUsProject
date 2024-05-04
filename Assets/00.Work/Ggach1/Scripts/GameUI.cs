@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditor.VersionControl;
-using UnityEngine.UI; //텍스트 건드림
+using UnityEngine.UI;
+using System; //텍스트 건드림
 
 public enum HPColor
 {
@@ -38,11 +39,11 @@ public class GameUI : MonoBehaviour
     [SerializeField] public Image _spriteImage2;
     [SerializeField] public Image _spriteImage3;
 
-    private void Start()
+    private void Awake()
     {
-        for(int i = 0; i < 3; i++)
+        foreach(HPColor HPColor in Enum.GetValues(typeof(HPColor)))
         {
-            HPColorDic.Add((HPColor)i, hpColor[i]); 
+            HPColorDic.Add(HPColor, hpColor[(int)HPColor]);
         }
     }
 

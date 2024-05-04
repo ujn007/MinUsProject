@@ -20,7 +20,7 @@ public class TileScript : MonoBehaviour, IPointerClickHandler
 
             OnThisTileObject.SetActive(true);
             PlayerPieces piece = OnThisTileObject.GetComponent<PlayerPieces>();
-            TMananger.instance.StartPieces.RemoveAt(0);
+            TMananger.instance.StartPieces.RemoveAt(0); 
         }
     }
 }

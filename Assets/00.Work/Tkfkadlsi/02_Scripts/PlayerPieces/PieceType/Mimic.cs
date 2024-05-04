@@ -7,7 +7,7 @@ public class Mimic : PlayerPieces
 {
     private int moveCount = 0;
 
-    private void Awake()
+    private void Start()
     {
         Init();
     }
