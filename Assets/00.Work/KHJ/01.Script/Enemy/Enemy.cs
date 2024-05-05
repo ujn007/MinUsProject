@@ -1,11 +1,9 @@
 using DG.Tweening;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 using UnityEngine;
 
 public class Enemy : EnemyGroup
-{
+{   
     [Header("SO")]
     public EnemyTpyeSO so;
 
@@ -18,11 +16,9 @@ public class Enemy : EnemyGroup
     public LayerMask whatIsPlayer;
 
     [HideInInspector] public List<EnemyTpyeSO> enemySOList = new List<EnemyTpyeSO>();
+    [HideInInspector] public Transform ownerTrm;
 
     public EnemyStateMachine StateMachine { get; private set; }
-    public Transform ownerTrm;
-
-    private float min = Mathf.Infinity;
 
     public void Awake()
     {
@@ -35,14 +31,13 @@ public class Enemy : EnemyGroup
         StateMachine.AddState(EnemyStateEnum.Attack, new EnemyAttackState(this, StateMachine));
     }
 
-    public override void Start()
+    private void Start()
     {
-        base.Start();
+        Initialize();   
         StateMachine.Initialize(EnemyStateEnum.Stay, this);
-        print(CheckMinEnemy());
     }
 
-    private void Update()
+    protected void Update()
     {
         StateMachine.CurrentState.UpdateState();
     }

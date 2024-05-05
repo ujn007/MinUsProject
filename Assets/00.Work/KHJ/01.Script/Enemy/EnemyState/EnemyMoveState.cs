@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMoveState : EnemyState
 {
     public bool canMove;
+    private bool dd;
 
     #region ref
     public Transform moveToTrm = null;
@@ -17,9 +18,9 @@ public class EnemyMoveState : EnemyState
 
     public override void UpdateState()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && !canMove)
         {
-            if (!canMove && enemy.so.name == enemy.CheckMinEnemy())
+            if (enemy.SetMinEenemy(enemy))
             {
                 enemy.CheckRoad(ref moveToTrm, ref moveToObj);
                 moveToTrm.position += Vector3.forward;
