@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: HorseEnemy
   m_EditorClassIdentifier: 
   moveDir:
-  - {x: 1, y: 1}
-  - {x: 1, y: -1}
-  - {x: -1, y: -1}
-  - {x: -1, y: 1}
+  - {x: 2, y: 1}
+  - {x: 2, y: -1}
+  - {x: 1, y: 2}
+  - {x: -1, y: 2}
+  - {x: -2, y: 1}
+  - {x: -2, y: -1}
+  - {x: 1, y: -2}
+  - {x: -1, y: -2}
+  moveTrm: {fileID: 0}
+  isMe: 0

@@ -6,17 +6,26 @@ public abstract class EnemyGroup : MonoBehaviour
 {
     [HideInInspector] public List<PlayerPieces> playerPieces = new List<PlayerPieces>();
     [HideInInspector] public List<Enemy> enemyList = new List<Enemy>();
+    Enemy enemyBase;
 
-    public virtual void Start()
+    public void Initialize()
     {
         playerPieces = FindObjectsOfType<PlayerPieces>().ToList();
-        enemyList = FindObjectsOfType<Enemy>().ToList();
+        enemyList = FindObjectsOfType<Enemy>().ToList();    
     }
 
-    public string CheckMinEnemy()
+    public bool SetMinEenemy(Enemy enemyBase)
+    {
+        if (enemyBase.name == CheckMinEnemy().name)
+            return true;
+        else
+            return false;
+    }
+
+    public Enemy CheckMinEnemy()
     {
         float mindis = float.MaxValue;
-        float minHP = float.MaxValue;
+        int minHP = int.MaxValue;
         Enemy enemy = null;
 
         for (int i = 0; i < playerPieces.Count; i++)
@@ -24,31 +33,22 @@ public abstract class EnemyGroup : MonoBehaviour
             for (int j = 0; j < enemyList.Count; j++)
             {
                 float dis = Vector2.Distance(playerPieces[i].transform.position, enemyList[j].transform.position);
-
                 if (dis <= mindis)
                 {
                     if (dis == mindis)
                     {
-                        if (minHP <= playerPieces[i].GetHP())
+                        if (minHP > playerPieces[i].GetHP())
                         {
-                            minHP = playerPieces[i].GetHP();
-
+                            enemy = enemyList[j];
+                            continue;
                         }
                     }
-                    else
-                    {
-                        mindis = dis;
-                        enemy = enemyList[j];
-                    }
+                    mindis = dis;
+                    enemy = enemyList[j];
                 }
             }
         }
 
-        return enemy.name;
-    }
-
-    private void CheckLowHealth(out float midDis)
-    {
-        midDis = 1;
+        return enemy;
     }
 }
