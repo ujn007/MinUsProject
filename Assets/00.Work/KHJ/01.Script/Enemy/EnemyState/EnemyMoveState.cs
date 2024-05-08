@@ -20,6 +20,7 @@ public class EnemyMoveState : EnemyState
     {
         if (enemy.canMoveEvent && !canMove)
         {
+            enemy.canMoveEvent = false;
             if (enemy.SetMinEenemy(enemy))
             {
                 enemy.CheckRoad(ref moveToTrm, ref moveToObj);
@@ -32,6 +33,7 @@ public class EnemyMoveState : EnemyState
                 else
                 {
                     enemy.transform.DOMove(moveToTrm.position + Vector3.forward, 0.5f).OnComplete(() => canMove = false);
+                    TMananger.instance.StartPlayerTurn();
                 }
             }
         }

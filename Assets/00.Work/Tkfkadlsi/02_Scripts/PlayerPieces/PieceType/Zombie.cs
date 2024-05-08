@@ -29,7 +29,9 @@ public class Zombie : PlayerPieces
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.CompareTag("Enemy"))
+        if (TMananger.instance.CurrnetState != GameState.PlayerTurn) return;
+
+        if (collision.collider.CompareTag("Enemy"))
         {
             if (pieceLevel != maxLevel)
             {
