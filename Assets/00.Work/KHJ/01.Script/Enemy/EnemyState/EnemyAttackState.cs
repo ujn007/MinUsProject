@@ -38,7 +38,8 @@ public class EnemyAttackState : EnemyState
         sq.Append(enemy.MoveTween(startPos, 0.5f, Ease.OutQuart)).OnComplete(() =>
         {
             moveState.canMove = false;
-            stateMachine.ChangeState(EnemyStateEnum.Move);
+            stateMachine.ChangeState(EnemyStateEnum.Stay);
+            TMananger.instance.StartPlayerTurn();
         });
     }
 
