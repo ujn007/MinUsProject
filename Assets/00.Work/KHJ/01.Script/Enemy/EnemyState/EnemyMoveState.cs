@@ -23,9 +23,8 @@ public class EnemyMoveState : EnemyState
             if (enemy.SetMinEenemy(enemy))
             {
                 enemy.CheckRoad(ref moveToTrm, ref moveToObj);
-                moveToTrm.position += Vector3.forward;
 
-                Debug.Log(moveToObj.layer);
+                Debug.Log(moveToObj.name);
                 if (moveToObj.layer == 7) //7이 플레이어
                 {
                     stateMachine.ChangeState(EnemyStateEnum.Attack);
