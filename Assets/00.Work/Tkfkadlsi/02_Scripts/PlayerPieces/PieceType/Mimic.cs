@@ -36,6 +36,7 @@ public class Mimic : PlayerPieces
             {
                 pieceManager.PCLevel(1, this);
             }
+
             Destroy(collision.gameObject);
         }
     }

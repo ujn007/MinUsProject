@@ -50,11 +50,12 @@ public class Enemy : EnemyGroup
         canMoveEvent = true;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         playerPieces[0].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
         playerPieces[1].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
         playerPieces[2].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
+        enemMng.enemyList.Remove(this);
     }
 
     protected void Update()
