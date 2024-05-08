@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2f9b6ae573f2f41978bf1318eeb34a, type: 3}
+  m_Name: Zom_2
+  m_EditorClassIdentifier: 
+  name: "\uAD6C\uC6B8 \uC131\uB140"
+  life: 3
+  useValue: 1
+  develop: "\uAD6C\uC6B8 10\uD0AC"
+  expain:
+  - "\uC801\uC744 3\uBA85 \uC7A1\uC73C\uBA74 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+  - "\uB208\uC744 \uAC00\uB9B0 \uC774\uC720\uB294 \uC0AC\uC2E4 \uADF8\uB0E5\uC785\uB2C8\uB2E4."
+  visual: {fileID: 21300000, guid: 00046d43fd7b9674a96be9a0eb289222, type: 3}
+  moveWay: {fileID: 21300000, guid: 62143b70c74c4de48935f34c90cbb948, type: 3}
