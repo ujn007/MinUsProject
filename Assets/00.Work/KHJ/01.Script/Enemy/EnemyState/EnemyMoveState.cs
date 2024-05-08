@@ -18,7 +18,7 @@ public class EnemyMoveState : EnemyState
 
     public override void UpdateState()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !canMove)
+        if (enemy.canMoveEvent && !canMove)
         {
             if (enemy.SetMinEenemy(enemy))
             {
