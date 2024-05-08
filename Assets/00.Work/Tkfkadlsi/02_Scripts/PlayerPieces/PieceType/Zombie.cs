@@ -8,7 +8,7 @@ public class Zombie : PlayerPieces
     private int killCount;
     private const int activeCount = 3;
 
-    private void Awake()
+    private void Start()
     {
         Init();
     }
