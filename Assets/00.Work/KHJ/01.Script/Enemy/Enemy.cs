@@ -26,7 +26,6 @@ public class Enemy : EnemyGroup
 
     public void Awake()
     {
-        playerEnergys = FindObjectsOfType<PlayerEnergy>();
         ownerTrm = transform;
 
         StateMachine = new EnemyStateMachine();
@@ -40,13 +39,10 @@ public class Enemy : EnemyGroup
     {
         Initialize();   
         StateMachine.Initialize(EnemyStateEnum.Stay, this);
-    }
 
-    private void OnEnable()
-    {
-        playerEnergys[0].PlayerTurnEnd += HandleEnemyTurnEvent;
-        playerEnergys[1].PlayerTurnEnd += HandleEnemyTurnEvent;
-        playerEnergys[2].PlayerTurnEnd += HandleEnemyTurnEvent;
+        playerPieces[0].playerEnergy.PlayerTurnEnd += HandleEnemyTurnEvent;
+        playerPieces[1].playerEnergy.PlayerTurnEnd += HandleEnemyTurnEvent;
+        playerPieces[2].playerEnergy.PlayerTurnEnd += HandleEnemyTurnEvent;
     }
 
     private void HandleEnemyTurnEvent()
@@ -56,9 +52,9 @@ public class Enemy : EnemyGroup
 
     private void OnDisable()
     {
-        playerEnergys[0].PlayerTurnEnd -= HandleEnemyTurnEvent;
-        playerEnergys[1].PlayerTurnEnd -= HandleEnemyTurnEvent;
-        playerEnergys[2].PlayerTurnEnd -= HandleEnemyTurnEvent;
+        playerPieces[0].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
+        playerPieces[1].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
+        playerPieces[2].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
     }
 
     protected void Update()

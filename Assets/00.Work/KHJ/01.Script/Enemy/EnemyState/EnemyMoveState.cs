@@ -20,6 +20,7 @@ public class EnemyMoveState : EnemyState
     {
         if (enemy.canMoveEvent && !canMove)
         {
+            enemy.canMoveEvent = false;
             if (enemy.SetMinEenemy(enemy))
             {
                 enemy.CheckRoad(ref moveToTrm, ref moveToObj);
