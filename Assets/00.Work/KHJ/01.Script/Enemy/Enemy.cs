@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,10 +19,14 @@ public class Enemy : EnemyGroup
     [HideInInspector] public List<EnemyTpyeSO> enemySOList = new List<EnemyTpyeSO>();
     [HideInInspector] public Transform ownerTrm;
 
+    private PlayerEnergy[] playerEnergys;
+
     public EnemyStateMachine StateMachine { get; private set; }
+    public bool canMoveEvent;
 
     public void Awake()
     {
+        playerEnergys = FindObjectsOfType<PlayerEnergy>();
         ownerTrm = transform;
 
         StateMachine = new EnemyStateMachine();
@@ -35,6 +40,25 @@ public class Enemy : EnemyGroup
     {
         Initialize();   
         StateMachine.Initialize(EnemyStateEnum.Stay, this);
+    }
+
+    private void OnEnable()
+    {
+        playerEnergys[0].PlayerTurnEnd += HandleEnemyTurnEvent;
+        playerEnergys[1].PlayerTurnEnd += HandleEnemyTurnEvent;
+        playerEnergys[2].PlayerTurnEnd += HandleEnemyTurnEvent;
+    }
+
+    private void HandleEnemyTurnEvent()
+    {
+        canMoveEvent = true;
+    }
+
+    private void OnDisable()
+    {
+        playerEnergys[0].PlayerTurnEnd -= HandleEnemyTurnEvent;
+        playerEnergys[1].PlayerTurnEnd -= HandleEnemyTurnEvent;
+        playerEnergys[2].PlayerTurnEnd -= HandleEnemyTurnEvent;
     }
 
     protected void Update()
