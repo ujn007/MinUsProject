@@ -15,4 +15,9 @@ public class OptionPanel : MonoBehaviour
     {
         optionPanel.SetActive(false);
     }
+
+    public void GameQuit()
+    {
+        Application.Quit();
+    }
 }

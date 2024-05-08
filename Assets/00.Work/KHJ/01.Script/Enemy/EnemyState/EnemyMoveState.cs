@@ -32,6 +32,7 @@ public class EnemyMoveState : EnemyState
                 else
                 {
                     enemy.transform.DOMove(moveToTrm.position + Vector3.forward, 0.5f).OnComplete(() => canMove = false);
+                    TMananger.instance.StartPlayerTurn();
                 }
             }
         }
