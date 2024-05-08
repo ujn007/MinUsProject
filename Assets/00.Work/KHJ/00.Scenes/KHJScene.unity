@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b092a75e71b67409e2047b83318f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Turn: 0
   StartPieces: []
   CurrnetState: 0
   tileScale: 1.4
@@ -217,6 +218,7 @@ MonoBehaviour:
   - {fileID: 7519671940468202681, guid: 35e9a335428f72a489a0a1202302bab0, type: 3}
   - {fileID: 7519671940468202681, guid: b1add601d37cbfe4cb77ec5e6ae693f0, type: 3}
   - {fileID: 7519671940468202681, guid: a1c85bb32b1e10a469e37d05440c714c, type: 3}
+  playerEnergy: {fileID: 0}
 --- !u!4 &258000040
 Transform:
   m_ObjectHideFlags: 0
