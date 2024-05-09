@@ -25,11 +25,11 @@ public class ButtonMangaer : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (isText) _text.color = new Color(1, 1, 0.85f);
+        if (isText && !ShyDic.isDic) _text.color = new Color(1, 1, 0.85f);
     }
 
     private void OnMouseExit()
     {
-        if (isText) _text.color = new Color(0.4f,0.4f,0.5f);
+        if (isText && !ShyDic.isDic) _text.color = new Color(0.4f,0.4f,0.5f);
     }
 }
