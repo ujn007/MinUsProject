@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -55,11 +56,23 @@ public class Enemy : EnemyGroup
         playerPieces[0].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
         playerPieces[1].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
         playerPieces[2].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
+        enemMng.enemyList.Remove(this);
     }
 
     protected void Update()
     {
         StateMachine.CurrentState.UpdateState();
+    }
+
+    public Coroutine StartDelayCallback(float time, Action Callback)
+    {
+        return StartCoroutine(DelayCoroutine(time, Callback));
+    }
+
+    private IEnumerator DelayCoroutine(float time, Action Callback)
+    {
+        yield return new WaitForSeconds(time);
+        Callback?.Invoke();
     }
 
     public void CheckRoad(ref Transform trm, ref GameObject obj)
@@ -93,7 +106,7 @@ public class Enemy : EnemyGroup
     private Transform MinPlayerDis()
     {
         Transform closestPlayer = null;
-        float minDistance = float.MaxValue; // ÃÖ¼Ò °Å¸®¸¦ ÃÖ´ë°ªÀ¸·Î ÃÊ±âÈ­
+        float minDistance = float.MaxValue; // ìµœì†Œ ê±°ë¦¬ë¥¼ ìµœëŒ€ê°’ìœ¼ë¡œ ì´ˆê¸°í™”
 
         foreach (PlayerPieces player in playerPieces)
         {

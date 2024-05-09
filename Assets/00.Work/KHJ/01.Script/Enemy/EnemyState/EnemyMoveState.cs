@@ -16,7 +16,19 @@ public class EnemyMoveState : EnemyState
     {
     }
 
+    public override void Enter()
+    {
+        canMove = true;
+        enemy.StartDelayCallback(0.5f, () => canMove = false);
+    }
+
     public override void UpdateState()
+    {
+        base.UpdateState();
+        Movement();
+    }
+
+    private void Movement()
     {
         if (enemy.canMoveEvent && !canMove)
         {
@@ -32,8 +44,9 @@ public class EnemyMoveState : EnemyState
                 }
                 else
                 {
-                    enemy.transform.DOMove(moveToTrm.position + Vector3.forward, 0.5f).OnComplete(() => canMove = false);
+                    enemy.transform.DOMove(moveToTrm.position + Vector3.forward, 0.5f);
                     TMananger.instance.StartPlayerTurn();
+                    enemy.StateMachine.ChangeState(EnemyStateEnum.Stay);
                 }
             }
         }
