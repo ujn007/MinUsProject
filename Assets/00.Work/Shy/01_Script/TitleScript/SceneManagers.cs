@@ -8,23 +8,27 @@ public class SceneManagers : MonoBehaviour
 {
     public void GameStart()
     {
+        if(!ShyDic.isDic)
         Debug.Log("¿Í °³Â¼´Â °ÔÀÓ!");
         //SceneManager.LoadScene("InGame");
     }
     [SerializeField] GameObject dic;
     public void Dic()
     {
-        dic.transform.DOScale(new Vector3(1,1), 1).SetEase(Ease.InBounce).OnStart(() => dic.SetActive(true));
+        if (!ShyDic.isDic)
+            dic.transform.DOScale(new Vector3(1,1), 1).SetEase(Ease.InBounce).OnStart(() => dic.SetActive(true));
 
     }
 
     public void Option()
     {
-        Debug.Log("°³Â¼´Â ¼³Á¤");
+        if (!ShyDic.isDic)
+            Debug.Log("°³Â¼´Â ¼³Á¤");
     }
 
     public void offDic()
     {
+        ShyDic.isDic = false;
         dic.transform.DOScale(Vector2.zero, 1).SetEase(Ease.InBounce).OnComplete(() => dic.SetActive(false));
     }
 }
