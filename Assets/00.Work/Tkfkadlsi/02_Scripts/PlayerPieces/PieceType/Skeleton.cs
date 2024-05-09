@@ -30,7 +30,8 @@ public class Skeleton : PlayerPieces
 
         if (collision.collider.CompareTag("Enemy"))
         {
-            if(pieceLevel != maxLevel)
+            Information.instance.killCount++;
+            if (pieceLevel != maxLevel)
             {
                 pieceManager.PCLevel(1, this);
             }

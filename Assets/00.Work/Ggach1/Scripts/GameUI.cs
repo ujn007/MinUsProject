@@ -63,18 +63,13 @@ public class GameUI : MonoSingleton<GameUI>
             EnemyManager.Instance.SpawnEenemy();
 
         _wave.text = (waveCount).ToString() + " Wave";
+        Information.instance.wave = waveCount;
     }
 
     public void SubtractLeadership(int leadership)
     {
         _leadership -= leadership;
         _leadershipText.text = leadership.ToString();
-    }
-
-    public void LeftWave(int _leftwave)
-    {
-        _wavecount -= _leftwave;
-        _leftWaveText.text = _leftwave.ToString();
     }
 
     public int GetWave()

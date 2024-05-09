@@ -33,6 +33,8 @@ public class TMananger : MonoBehaviour
     [SerializeField] private List<GameObject> pieces = new List<GameObject>();
     [SerializeField] private PlayerEnergy playerEnergy;
     [SerializeField] private GameUI gameUI;
+    [SerializeField] private AudioSource SFXSource;
+    [SerializeField] private AudioClip moveClip;
 
     public static TMananger instance;
 
@@ -47,6 +49,12 @@ public class TMananger : MonoBehaviour
     {
         instance = this;
         Init();
+    }
+
+    private void Start()
+    {
+        Information.instance.killCount = 0;
+        Information.instance.wave = 0;
     }
 
     private void Init()
@@ -126,5 +134,10 @@ public class TMananger : MonoBehaviour
         Turn++;
         playerEnergy.TurnStart(3 + gameUI.GetWave() % 50);
         CurrnetState = GameState.PlayerTurn;
+    }
+
+    public void MoveSFXPlay()
+    {
+        SFXSource.PlayOneShot(moveClip);
     }
 }
