@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class EnemyGroup : MonoBehaviour
 {
     [HideInInspector] public List<PlayerPieces> playerPieces = new List<PlayerPieces>();
-    [HideInInspector] public List<Enemy> enemyList = new List<Enemy>();
+    public List<Enemy> enemyList = new List<Enemy>();
     Enemy enemyBase;
 
     public void Initialize()
