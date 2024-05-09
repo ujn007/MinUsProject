@@ -123,7 +123,7 @@ public class TMananger : MonoBehaviour
     public void StartPlayerTurn()
     { 
         Turn++;
-        playerEnergy.PlusEnergy((Turn / 30) + 3);
+        playerEnergy.TurnStart(7);
         CurrnetState = GameState.PlayerTurn;
     }
 }

@@ -37,12 +37,6 @@ public class Zombie : PlayerPieces
             {
                 pieceManager.PCLevel(1, this);
             }
-
-            if (collision.gameObject.TryGetComponent(out Enemy enemy))
-            {
-                enemy.enemyList.Remove(enemy);
-            }
-
             Destroy(collision.gameObject);
             killCount++;
             UseSkill();
