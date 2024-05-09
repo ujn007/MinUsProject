@@ -32,6 +32,7 @@ public class TMananger : MonoBehaviour
     [SerializeField] private Color tileColor2;
     [SerializeField] private List<GameObject> pieces = new List<GameObject>();
     [SerializeField] private PlayerEnergy playerEnergy;
+    [SerializeField] private GameUI gameUI;
 
     public static TMananger instance;
 
@@ -123,7 +124,7 @@ public class TMananger : MonoBehaviour
     public void StartPlayerTurn()
     { 
         Turn++;
-        playerEnergy.TurnStart(7);
+        playerEnergy.TurnStart(3 + gameUI.GetWave() % 50);
         CurrnetState = GameState.PlayerTurn;
     }
 }

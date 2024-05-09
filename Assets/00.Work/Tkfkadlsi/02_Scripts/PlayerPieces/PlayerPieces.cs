@@ -78,6 +78,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
 
     public virtual void MovePiece()
     {
+        MovePointONOFF(true);
         playerEnergy.MinusEnergy(SubEnergy);
         pieceManager.Setleadership(playerEnergy.GetEnergy());
     }
