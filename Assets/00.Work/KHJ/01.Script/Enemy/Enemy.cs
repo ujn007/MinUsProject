@@ -25,6 +25,7 @@ public class Enemy : EnemyGroup
     public EnemyStateMachine StateMachine { get; private set; }
     public bool canMoveEvent;
 
+
     public void Awake()
     {
         ownerTrm = transform;
