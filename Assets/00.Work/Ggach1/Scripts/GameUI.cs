@@ -14,7 +14,7 @@ public enum HPColor
     Purple = 3,
 }
 
-public class GameUI : MonoBehaviour
+public class GameUI : MonoSingleton<GameUI> 
 {
     [SerializeField] private List<Color> hpColor = new List<Color>();
     [SerializeField] public Dictionary<HPColor, Color> HPColorDic = new Dictionary<HPColor, Color>();
@@ -39,6 +39,9 @@ public class GameUI : MonoBehaviour
     [SerializeField] public Image _spriteImage2;
     [SerializeField] public Image _spriteImage3;
 
+    [Header("KHJSetting")]
+    private int waveCount = 0;
+
     private void Awake()
     {
         foreach(HPColor HPColor in Enum.GetValues(typeof(HPColor)))
@@ -52,9 +55,14 @@ public class GameUI : MonoBehaviour
         _leadershipText.text = _leadership.ToString();
     }
 
-    public void NextWave(int wave)
+    public void NextWave()
     {
-        _wave.text = wave.ToString() + " Wave";
+        ++waveCount;
+
+        if ((waveCount - 1) % 5 == 0 && waveCount > 1)
+            EnemyManager.Instance.SpawnEenemy();
+
+        _wave.text = (waveCount).ToString() + " Wave";
     }
 
     public void SubtractLeadership(int leadership)

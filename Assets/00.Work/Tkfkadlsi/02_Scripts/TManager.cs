@@ -124,6 +124,7 @@ public class TMananger : MonoBehaviour
     { 
         Turn++;
         playerEnergy.PlusEnergy((Turn / 30) + 3);
+        GameUI.Instance.NextWave();
         CurrnetState = GameState.PlayerTurn;
     }
 }
