@@ -9,14 +9,13 @@ public class SceneManagers : MonoBehaviour
     public void GameStart()
     {
         if(!ShyDic.isDic)
-        Debug.Log("와 개쩌는 게임!");
-        //SceneManager.LoadScene("InGame");
+        SceneManager.LoadScene("Story");
     }
     [SerializeField] GameObject dic;
     public void Dic()
     {
         if (!ShyDic.isDic)
-            dic.transform.DOScale(new Vector3(1,1), 1).SetEase(Ease.InBounce).OnStart(() => dic.SetActive(true));
+            dic.transform.DOScale(new Vector3(1,1), 0.7f).SetEase(Ease.InCirc).OnStart(() => dic.SetActive(true));
 
     }
 

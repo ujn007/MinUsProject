@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class Shy_Story : MonoBehaviour
 {
@@ -40,9 +41,11 @@ public class Shy_Story : MonoBehaviour
         mobs.SetActive(false);
         people.SetActive(false);
     }
+
+    [SerializeField] int StartNum = 0;
     private void Start()
     {
-        StartCoroutine(ShowMes(5));
+        StartCoroutine(ShowMes(StartNum));
     }
 
     private void Update()
@@ -52,8 +55,7 @@ public class Shy_Story : MonoBehaviour
 
     void Skip()
     {
-        Debug.Log("끝");
-        //다음 씬 가기
+        SceneManager.LoadScene("");
     }
 
     bool canNext = true;
