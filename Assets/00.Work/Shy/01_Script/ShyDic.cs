@@ -11,6 +11,8 @@ public class ShyDic : MonoBehaviour
 
     static int page;
 
+    public static bool isDic = false;
+
     [SerializeField] Image visualPos;
     [SerializeField] Image moveWayPos;
     [SerializeField] TextMeshProUGUI namePos;
@@ -34,6 +36,7 @@ public class ShyDic : MonoBehaviour
 
     private void ShowPage()
     {
+        isDic = true;
         namePos.text = pc[page].name;
         moveWayPos.sprite = pc[page].moveWay;
         visualPos.sprite = pc[page].visual;
