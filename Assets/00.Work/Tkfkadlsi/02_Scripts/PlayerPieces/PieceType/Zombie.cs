@@ -37,7 +37,6 @@ public class Zombie : PlayerPieces
             {
                 pieceManager.PCLevel(1, this);
             }
-
             Destroy(collision.gameObject);
             killCount++;
             UseSkill();

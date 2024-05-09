@@ -34,8 +34,6 @@ public class Skeleton : PlayerPieces
             {
                 pieceManager.PCLevel(1, this);
             }
-
-
             Destroy(collision.gameObject);
             UseSkill();
         }

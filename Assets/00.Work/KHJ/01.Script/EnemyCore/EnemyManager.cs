@@ -15,8 +15,6 @@ public class EnemyManager : MonoSingleton<EnemyManager>
     private List<Transform> _tileList;
     public List<Transform> TileList => _tileList;
 
-    public List<Enemy> enemyList = new List<Enemy>();
-
     private void Start()
     {
         _tileList = _tileParent.GetComponentsInChildren<Transform>().ToList();

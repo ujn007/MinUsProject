@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -837241603
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0e9c6e1e5e6d6714bbc238c1b8d0d4f2, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,8 +121,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
+    pivot: {x: 0.5, y: 0.28866667}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPieces: []
+  enemyList: []
   so: {fileID: 11400000, guid: 24fdd93491bdb80448739b2b6001b95a, type: 2}
   damage: 0
   checkMoveDir: 1.4
@@ -153,4 +154,3 @@ MonoBehaviour:
     m_Bits: 128
   enemySOList: []
   ownerTrm: {fileID: 0}
-  canMoveEvent: 0

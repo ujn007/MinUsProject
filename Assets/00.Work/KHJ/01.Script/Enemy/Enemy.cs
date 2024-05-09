@@ -51,12 +51,11 @@ public class Enemy : EnemyGroup
         canMoveEvent = true;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         playerPieces[0].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
         playerPieces[1].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
         playerPieces[2].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
-
         enemMng.enemyList.Remove(this);
     }
 
@@ -107,7 +106,7 @@ public class Enemy : EnemyGroup
     private Transform MinPlayerDis()
     {
         Transform closestPlayer = null;
-        float minDistance = float.MaxValue; // ÃÖ¼Ò °Å¸®¸¦ ÃÖ´ë°ªÀ¸·Î ÃÊ±âÈ­
+        float minDistance = float.MaxValue; // ìµœì†Œ ê±°ë¦¬ë¥¼ ìµœëŒ€ê°’ìœ¼ë¡œ ì´ˆê¸°í™”
 
         foreach (PlayerPieces player in playerPieces)
         {
