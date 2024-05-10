@@ -122,7 +122,6 @@ public class TMananger : MonoBehaviour
         }
 
         EnemyManager.Instance.SpawnEenemy();
-        StartPlayerTurn();
     }
 
     public void StartPlayerTurn()
