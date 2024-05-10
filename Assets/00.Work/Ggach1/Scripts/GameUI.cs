@@ -14,7 +14,7 @@ public enum HPColor
     Purple = 3,
 }
 
-public class GameUI : MonoSingleton<GameUI> 
+public class GameUI : MonoSingleton<GameUI>
 {
     [SerializeField] private List<Color> hpColor = new List<Color>();
     [SerializeField] public Dictionary<HPColor, Color> HPColorDic = new Dictionary<HPColor, Color>();
@@ -40,11 +40,11 @@ public class GameUI : MonoSingleton<GameUI>
     [SerializeField] public Image _spriteImage3;
 
     [Header("KHJSetting")]
-    private int waveCount = 0;
+    [HideInInspector] public int waveCount = 0;
 
     private void Awake()
     {
-        foreach(HPColor HPColor in Enum.GetValues(typeof(HPColor)))
+        foreach (HPColor HPColor in Enum.GetValues(typeof(HPColor)))
         {
             HPColorDic.Add(HPColor, hpColor[(int)HPColor]);
         }
@@ -55,12 +55,18 @@ public class GameUI : MonoSingleton<GameUI>
         _leadershipText.text = _leadership.ToString();
     }
 
-    public void NextWave()
+    public void NextWave(bool isEnemyDie = false)
     {
-        ++waveCount;
-
-        if ((waveCount - 1) % 5 == 0 && waveCount > 1)
+        Debug.Log($"Wave ½ÇÇà : {isEnemyDie}");
+        if (!isEnemyDie)
+        {
+            ++waveCount;
+        }
+        else
+        {
+            waveCount = ((waveCount - 1) / 5) * 5 + 6;
             EnemyManager.Instance.SpawnEenemy();
+        }
 
         _wave.text = (waveCount).ToString() + " Wave";
         Information.instance.wave = waveCount;
@@ -82,7 +88,7 @@ public class GameUI : MonoSingleton<GameUI>
         _Piece.pieceEXP += _PCCatchE;
         PCTextUpdate(_Piece);
 
-        while(_Piece.pieceEXP >= _Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel])
+        while (_Piece.pieceEXP >= _Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel])
         {
             _Piece.pieceEXP -= _Piece.techLineSO.LevelUpCondition[_Piece.pieceLevel];
             _Piece.LevelUp();
@@ -138,7 +144,7 @@ public class GameUI : MonoSingleton<GameUI>
         {
             Image hpimage = hpimages[i % 3];
 
-            if(hpimage.color == HPColorDic[HPColor.Black])
+            if (hpimage.color == HPColorDic[HPColor.Black])
             {
                 hpimage.color = HPColorDic[HPColor.Red];
             }

@@ -44,9 +44,12 @@ public class EnemyMoveState : EnemyState
                 }
                 else
                 {
-                    enemy.transform.DOMove(moveToTrm.position + Vector3.forward, 0.5f);
-                    TMananger.instance.StartPlayerTurn();
-                    enemy.StateMachine.ChangeState(EnemyStateEnum.Stay);
+                    enemy.transform.DOMove(moveToTrm.position + Vector3.forward, 0.5f)
+                        .OnComplete(() =>
+                        {
+                            TMananger.instance.StartPlayerTurn();
+                            enemy.StateMachine.ChangeState(EnemyStateEnum.Stay);
+                        });
                 }
             }
         }
