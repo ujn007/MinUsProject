@@ -1962,9 +1962,9 @@ MonoBehaviour:
   masterVolumeSlider: {fileID: 1745600384}
   bgmVolumeSlider: {fileID: 2069299302}
   sfxVolumeSlider: {fileID: 2122564855}
-  masterVolumeText: {fileID: 192094382}
-  bgmVolumeText: {fileID: 1169307964}
-  sfxVolumeText: {fileID: 157280141}
+  masterVolumeText: {fileID: 374074521}
+  bgmVolumeText: {fileID: 1098884410}
+  sfxVolumeText: {fileID: 1235584364}
 --- !u!114 &823078353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1977,7 +1977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0ae14e7568d3e4abc09da185acf8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionPanel: {fileID: 449561601}
+  optionPanel: {fileID: 311467291}
 --- !u!1 &846552234
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,9 +2292,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823078353}
         m_TargetAssemblyTypeName: OptionPanel, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OpenPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2579,7 +2579,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823078353}
         m_TargetAssemblyTypeName: OptionPanel, Assembly-CSharp
         m_MethodName: GameQuit
         m_Mode: 1
@@ -3173,7 +3173,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -9051252214038058388, guid: b4be336073fe64f429a784e3f4039f32, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dfcdee1ac00bf2d4aa4b50cb284ef21d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3844,7 +3844,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823078353}
         m_TargetAssemblyTypeName: OptionPanel, Assembly-CSharp
         m_MethodName: ClosePanel
         m_Mode: 1
@@ -5051,7 +5051,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823078352}
         m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
         m_MethodName: MasterVolumeChange
         m_Mode: 1
@@ -5760,7 +5760,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823078352}
         m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
         m_MethodName: BGMVolumeChange
         m_Mode: 1
@@ -5863,7 +5863,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823078352}
         m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
         m_MethodName: SFXVolumeChange
         m_Mode: 1
