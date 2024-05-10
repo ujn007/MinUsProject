@@ -88,6 +88,13 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     {
         pieceHP -= damage;
         pieceManager.PChpchange(this);
+
+        if (pieceHP <= 0)
+        {
+            gameObject.SetActive(false);    
+           
+        }
+
     }
 
     public int GetHP()

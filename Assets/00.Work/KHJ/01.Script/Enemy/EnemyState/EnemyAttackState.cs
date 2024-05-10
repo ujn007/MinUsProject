@@ -24,7 +24,8 @@ public class EnemyAttackState : EnemyState
         Vector2 startPos = enemy.transform.position;
 
         Sequence sq = DOTween.Sequence();
-        sq.Append(enemy.MoveTween((Vector2)moveState.moveToTrm.position, 0.1f)).OnComplete(() =>
+        sq.Append(enemy.MoveTween((Vector2)moveState.moveToTrm.position, 0.1f));
+        sq.AppendCallback(() =>
         {
             if (moveState.moveToObj.TryGetComponent(out PlayerPieces player))
             {
@@ -49,6 +50,6 @@ public class EnemyAttackState : EnemyState
          
         yield return new WaitForSeconds(0.1f);
 
-        mat.SetColor("EmissionColor", Color.black);
+        mat.SetColor("_EmissionColor", Color.black);
     }
 }
