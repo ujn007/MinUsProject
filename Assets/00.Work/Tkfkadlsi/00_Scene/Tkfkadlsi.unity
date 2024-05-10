@@ -2944,7 +2944,10 @@ MonoBehaviour:
   - {fileID: 2212177503801160152, guid: b92b2a03d1c7ef8479454b297515dd30, type: 3}
   - {fileID: 7222209408794595907, guid: 1147f2f7c714c6f4bb711705dc886f63, type: 3}
   - {fileID: 1030367403444978792, guid: 0055c709d74df0e4eaf9e28871fa5d51, type: 3}
-  _enemySpawnCount: 1
+  _enemySpawnCount:
+    CrossAndXEnemy: 1
+    CrossEnemy: 1
+    HorseEnemy: 1
   enemyList: []
 --- !u!4 &1142285206
 Transform:
@@ -3743,6 +3746,7 @@ MonoBehaviour:
   _spriteImage1: {fileID: 1363875614}
   _spriteImage2: {fileID: 82498396}
   _spriteImage3: {fileID: 1028582635}
+  waveCount: 0
 --- !u!114 &1350792957
 MonoBehaviour:
   m_ObjectHideFlags: 0

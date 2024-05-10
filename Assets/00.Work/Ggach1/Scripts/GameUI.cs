@@ -114,7 +114,7 @@ public class GameUI : MonoSingleton<GameUI>
     public void PChpchange(PlayerPieces _Piece)
     {
         GameObject currentHP = null;
-
+        
         switch (_Piece.pieceIndex)
         {
             case 1:
