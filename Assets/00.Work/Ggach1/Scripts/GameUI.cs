@@ -29,7 +29,7 @@ public class GameUI : MonoSingleton<GameUI>
     int _leadership = 0;
 
     [SerializeField] TextMeshProUGUI _leftWaveText;
-    int _leftWave = 0;
+    int _wavecount = 0;
 
     [SerializeField] TextMeshProUGUI _PC1LevelText;
     [SerializeField] TextMeshProUGUI _PC2LevelText;
@@ -69,6 +69,7 @@ public class GameUI : MonoSingleton<GameUI>
         }
 
         _wave.text = (waveCount).ToString() + " Wave";
+        Information.instance.wave = waveCount;
     }
 
     public void SubtractLeadership(int leadership)
@@ -77,10 +78,9 @@ public class GameUI : MonoSingleton<GameUI>
         _leadershipText.text = leadership.ToString();
     }
 
-    public void LeftWave(int _leftwave)
+    public int GetWave()
     {
-        _leftWave -= _leftwave;
-        _leftWaveText.text = _leftwave.ToString();
+        return waveCount;
     }
 
     public void PCLevel(int _PCCatchE, PlayerPieces _Piece)

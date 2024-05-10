@@ -48,7 +48,6 @@ public class Shy_Story : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) Skip();
-
     }
 
     void Skip()

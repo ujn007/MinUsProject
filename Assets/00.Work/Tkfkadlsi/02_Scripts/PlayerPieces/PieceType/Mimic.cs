@@ -32,6 +32,7 @@ public class Mimic : PlayerPieces
 
         if (collision.collider.CompareTag("Enemy"))
         {
+            Information.instance.killCount++;
             if (pieceLevel != maxLevel)
             {
                 pieceManager.PCLevel(1, this);
