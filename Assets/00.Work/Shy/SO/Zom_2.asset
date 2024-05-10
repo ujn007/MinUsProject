@@ -19,5 +19,5 @@ MonoBehaviour:
   expain:
   - "\uC801\uC744 3\uBA85 \uC7A1\uC73C\uBA74 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
   - "\uB208\uC744 \uAC00\uB9B0 \uC774\uC720\uB294 \uC0AC\uC2E4 \uADF8\uB0E5\uC785\uB2C8\uB2E4."
-  visual: {fileID: 21300000, guid: 00046d43fd7b9674a96be9a0eb289222, type: 3}
-  moveWay: {fileID: 21300000, guid: 62143b70c74c4de48935f34c90cbb948, type: 3}
+  visual: {fileID: -141081132, guid: 3a0f901271a15af44b3f5d49f6e62601, type: 3}
+  moveWay: {fileID: 21300000, guid: cb561f2d81dcfa444b068fd2dd5f8d0a, type: 3}
