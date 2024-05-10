@@ -1,0 +1,708 @@
+fileFormatVersion: 2
+guid: 3a0f901271a15af44b3f5d49f6e62601
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1600
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ZL2-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 3894
+        width: 964
+        height: 1901
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b5b9237923e25448995fb935396ae09
+      internalID: -141081132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 3890
+        width: 971
+        height: 1900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c78faba1215d8745a4ac89c402b6e4c
+      internalID: 1838083397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 2174
+        y: 3890
+        width: 978
+        height: 1896
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff8d4d0756d223488fa310e96a07b1b
+      internalID: -867853186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 3890
+        width: 986
+        height: 1895
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395172965a749ed40947b5211284bff2
+      internalID: 1732629075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 4331
+        y: 3894
+        width: 993
+        height: 1887
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43e6a4dd59c0aa74a93a29c2ffa975f7
+      internalID: -820228284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 5410
+        y: 3894
+        width: 1002
+        height: 1884
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e01e4e21989839949af1906e20a20812
+      internalID: -1561665200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 6488
+        y: 3894
+        width: 1012
+        height: 1882
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a14b2a53180820c42bc82298a4676cbb
+      internalID: -1126054133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 7567
+        y: 3894
+        width: 1021
+        height: 1877
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77f7b98ce1ded37489b45eb989a96f00
+      internalID: 1262313709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 8645
+        y: 3894
+        width: 1027
+        height: 1877
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879e3e5e637fa85478f32c7d6c3e0e41
+      internalID: 1440040923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1960
+        width: 1031
+        height: 1877
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b970f80776aa74d9111a37a1585396
+      internalID: 258829226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 1956
+        width: 1041
+        height: 1881
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 728e835949b08aa459c28918a785894b
+      internalID: 714981572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 2174
+        y: 1951
+        width: 1050
+        height: 1881
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60d355c8eaa65c449b46889afb425f5c
+      internalID: 850505530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 1947
+        width: 1060
+        height: 1881
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b25c6be2fe6b51843ba505a472fcf8f0
+      internalID: 1797743088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 4331
+        y: 1946
+        width: 1069
+        height: 1882
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 438b61ae5677d5947ad5195e092dc0d6
+      internalID: 1087366002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 5410
+        y: 1946
+        width: 1069
+        height: 1882
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001267cd35b658d4c8ae0a39275610d1
+      internalID: -1369470451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 6488
+        y: 1946
+        width: 1064
+        height: 1882
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a14c62259a1ad74a8cd4685c25de1f8
+      internalID: 1813540279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 7567
+        y: 1951
+        width: 1059
+        height: 1881
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0292006394344540890db41803c0aaa
+      internalID: 1602161112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 8645
+        y: 1955
+        width: 1050
+        height: 1878
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4fac797a5d091f49b2e2f071de42c8e
+      internalID: 1217972999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 31
+        width: 1035
+        height: 1877
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63374482533b8ab449ad8a06c381742c
+      internalID: 1796911075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 36
+        width: 1026
+        height: 1877
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb662eb42627e64a978c15e1e23333d
+      internalID: 1071750709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 2174
+        y: 36
+        width: 1016
+        height: 1881
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c093126a2691a34db3fe334a99fdefc
+      internalID: 179766512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 36
+        width: 1005
+        height: 1886
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05247391baa1b4a4f8cc1a70816e201a
+      internalID: -804533080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 4331
+        y: 36
+        width: 993
+        height: 1886
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d39484fffa03a6459f972f9103c3f42
+      internalID: -196213441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 5410
+        y: 36
+        width: 983
+        height: 1891
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4429c68b5813394da76d85215ed02b9
+      internalID: 1479052416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 6488
+        y: 36
+        width: 974
+        height: 1896
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e431074536ce24e81d3dc8fa0b31fe
+      internalID: -1388897106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 7567
+        y: 36
+        width: 969
+        height: 1896
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71d8f2e726270240bd7b17b01f8d6c6
+      internalID: 1741510467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZL2-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 8645
+        y: 36
+        width: 965
+        height: 1900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89070f95deb9a5946bb8e82c8cb897d8
+      internalID: -1299805069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ZL2-Sheet_0: -141081132
+      ZL2-Sheet_1: 1838083397
+      ZL2-Sheet_10: 714981572
+      ZL2-Sheet_11: 850505530
+      ZL2-Sheet_12: 1797743088
+      ZL2-Sheet_13: 1087366002
+      ZL2-Sheet_14: -1369470451
+      ZL2-Sheet_15: 1813540279
+      ZL2-Sheet_16: 1602161112
+      ZL2-Sheet_17: 1217972999
+      ZL2-Sheet_18: 1796911075
+      ZL2-Sheet_19: 1071750709
+      ZL2-Sheet_2: -867853186
+      ZL2-Sheet_20: 179766512
+      ZL2-Sheet_21: -804533080
+      ZL2-Sheet_22: -196213441
+      ZL2-Sheet_23: 1479052416
+      ZL2-Sheet_24: -1388897106
+      ZL2-Sheet_25: 1741510467
+      ZL2-Sheet_26: -1299805069
+      ZL2-Sheet_3: 1732629075
+      ZL2-Sheet_4: -820228284
+      ZL2-Sheet_5: -1561665200
+      ZL2-Sheet_6: -1126054133
+      ZL2-Sheet_7: 1262313709
+      ZL2-Sheet_8: 1440040923
+      ZL2-Sheet_9: 258829226
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

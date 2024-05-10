@@ -19,4 +19,4 @@ MonoBehaviour:
   expain:
   - "\uC9DD\uC218 \uBC88\uC9F8\uC5D0\uB294 \uAD11\uC5ED\uC73C\uB85C \uB180\uB798\uD0B5\uB2C8\uB2E4."
   visual: {fileID: 1189320417, guid: c4cd42296e7f571409febe11d8ded4a3, type: 3}
-  moveWay: {fileID: 21300000, guid: 62143b70c74c4de48935f34c90cbb948, type: 3}
+  moveWay: {fileID: 21300000, guid: ec2996fa6deb0f546a60d3fcc8840561, type: 3}
