@@ -55,7 +55,7 @@ public class Shy_Story : MonoBehaviour
 
     void Skip()
     {
-        SceneManager.LoadScene("Tkfkadlsi");
+        SceneManager.LoadScene("shymain");
     }
 
     bool canNext = true;

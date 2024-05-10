@@ -43,7 +43,7 @@ public class TitleMess : MonoBehaviour
             sr.DOColor(new Color(0.7f, 0.85f, 0.85f), 1);
             
             startBt.Appear();
-            optionBt.Appear();
+            //optionBt.Appear();
             dicBt.Appear();
         }   
     }

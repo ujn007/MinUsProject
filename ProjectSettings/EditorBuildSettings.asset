@@ -14,7 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00.Work/Shy/00_Scene/Story.unity
     guid: 07816fef527f6174a94cedc6de66e165
-  - enabled: 1
+  - enabled: 0
     path: Assets/00.Work/Tkfkadlsi/00_Scene/Tkfkadlsi.unity
     guid: 7f08410bd35f56d45b851936429ccd6b
+  - enabled: 1
+    path: Assets/00.Work/Shy/00_Scene/shymain.unity
+    guid: b1e8b540672f6064cafd7f8a0c489582
+  - enabled: 1
+    path: Assets/00.Work/Shy/00_Scene/Fail.unity
+    guid: 371558515328b7f418ae89c0ecfd51f7
   m_configObjects: {}
