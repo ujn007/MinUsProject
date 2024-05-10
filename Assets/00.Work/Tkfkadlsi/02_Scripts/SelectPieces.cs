@@ -20,7 +20,7 @@ public class SelectPieces : MonoBehaviour
         selectedPiece = piece;
     }
 
-    public void MoveSelectPiece()
+    private void MoveSelectPiece()
     {
         PlayerPieces pieces = selectedPiece.GetComponent<PlayerPieces>();
         pieces.MovePointONOFF(true);

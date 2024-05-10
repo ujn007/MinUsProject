@@ -2,6 +2,17 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[System.Serializable]
+public struct EnemySpawnCount
+{
+    public int CrossAndXEnemy;
+    public int CrossEnemy;
+    public int HorseEnemy;
+    public int CrossAndXEnemyPlus;
+    public int CrossEnemyPlus;
+    public int HorseEnemyPlus;
+}
+
 public class EnemyManager : MonoSingleton<EnemyManager>
 {
     [Header("Tile")]
@@ -10,29 +21,78 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
     [Header("EnemySetting")]
     [SerializeField] private List<Transform> _enemyPF;
-    [SerializeField] private int _enemySpawnCount;
-    
+    public int whenWavePlusCount;
+    public EnemySpawnCount _enemySpawnCount;
+
     private List<Transform> _tileList;
     public List<Transform> TileList => _tileList;
 
-    public List<Enemy> enemyList = new List<Enemy>();
+    [SerializeField] public List<Enemy> enemyList = new List<Enemy>();
+    [HideInInspector] public List<PlayerPieces> playerPieces = new List<PlayerPieces>();
 
     private void Start()
     {
         _tileList = _tileParent.GetComponentsInChildren<Transform>().ToList();
     }
 
-    public void SpawnEenemy()
+    private void Update()
     {
-
-        for (int i = 0; i < _enemyPF.Count; i++)
+        if (enemyList.Count <= 0 && GameUI.Instance.waveCount >= 1)
         {
-            int randTrm = Random.Range(0, _tileList.Count);
-            Transform enemy = Instantiate(_enemyPF[i], Vector3.zero, Quaternion.identity);
-            enemy.name = _enemyPF[i].name;
-            enemy.position = _tileList[randTrm].transform.position + Vector3.forward;
-
-            _tileList.RemoveAt(randTrm);
+            GameUI.Instance.NextWave(true);
         }
+    }
+
+    public void SpawnEenemy(bool s = false)
+    {
+        if (GameUI.Instance.waveCount > 1)
+            _tileList = _tileParent.GetComponentsInChildren<Transform>().ToList();
+
+        if (s)
+        {
+            _enemySpawnCount.HorseEnemy += _enemySpawnCount.HorseEnemyPlus;
+            _enemySpawnCount.CrossEnemy += _enemySpawnCount.CrossEnemyPlus;
+            _enemySpawnCount.CrossAndXEnemy += _enemySpawnCount.CrossAndXEnemyPlus;
+        }
+
+        for (int j = 0; j < _enemySpawnCount.CrossAndXEnemy; j++)
+        {
+            SpawnEnem(0);
+        }
+
+        for (int j = 0; j < _enemySpawnCount.CrossEnemy; j++)
+        {
+            SpawnEnem(1);
+        }
+
+        for (int j = 0; j < _enemySpawnCount.HorseEnemy; j++)
+        {
+            SpawnEnem(2);
+        }
+    }
+
+    private void SpawnEnem(int j)
+    {
+        if (GameUI.Instance.waveCount > 1)
+        {
+            foreach (PlayerPieces player in playerPieces)
+            {
+                Collider[] colliders = Physics.OverlapSphere(player.transform.position, 0.5f);
+                foreach (Collider collider in colliders)
+                {
+                    Debug.Log(collider.gameObject.layer);
+                    if (collider.gameObject.layer == 6)
+                    {
+                        _tileList.Remove(collider.transform);
+                    }
+                }
+            }
+        }
+
+        int randTrm = Random.Range(0, _tileList.Count);
+        Transform enemy = Instantiate(_enemyPF[j], Vector3.zero, Quaternion.identity);
+        enemy.position = _tileList[randTrm].transform.position + Vector3.forward;
+
+        _tileList.RemoveAt(randTrm);
     }
 }
