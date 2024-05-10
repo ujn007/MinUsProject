@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -122,14 +124,16 @@ public class TMananger : MonoBehaviour
         EnemyManager.Instance.SpawnEenemy();
     }
 
-    public void StartPlayerTurn()
+    public void StartPlayerTurn(bool isWaveSkip = false)
     {
-        Turn++;
-        GameUI.Instance.NextWave();
-        playerEnergy.TurnStart(3 + Information.instance.wave / 25);
+        if(!isWaveSkip)
+        {
+            Turn++;
+            GameUI.Instance.NextWave();
+        }
+        playerEnergy.TurnStart(1);
         CurrnetState = GameState.PlayerTurn;
     }
-
 
     public void MoveSFXPlay()
     {

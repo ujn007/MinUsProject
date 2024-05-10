@@ -12,6 +12,11 @@ public class TileScript : MonoBehaviour, IPointerClickHandler
     {
         if(TMananger.instance.CurrnetState == GameState.Set)
         {
+            if(OnThisTileObject != null)
+            {
+                return;
+            }
+
             OnThisTileObject = TMananger.instance.StartPieces[0];
             OnThisTileObject.transform.position = transform.position;
 
