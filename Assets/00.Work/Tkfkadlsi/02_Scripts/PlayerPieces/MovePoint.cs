@@ -20,12 +20,12 @@ public class MovePoint : MonoBehaviour, IPointerClickHandler
         bool isYout = false;
 
         isXout = Clamp(
-            TMananger.instance.minPos.x,
-            TMananger.instance.maxPos.x,
+            TMananger.instance.minPos.x - 0.1f,
+            TMananger.instance.maxPos.x + 0.1f,
             transform.position.x);
         isYout = Clamp(
-            TMananger.instance.minPos.y,
-            TMananger.instance.maxPos.y,
+            TMananger.instance.minPos.y - 0.1f,
+            TMananger.instance.maxPos.y + 0.1f,
             transform.position.y);
 
         if(isXout || isYout)
