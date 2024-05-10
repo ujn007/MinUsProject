@@ -130,7 +130,8 @@ public class TMananger : MonoBehaviour
     }
 
     public void StartPlayerTurn()
-    { 
+    {
+        GameUI.Instance.NextWave();
         Turn++;
         playerEnergy.TurnStart(3 + gameUI.GetWave() % 50);
         CurrnetState = GameState.PlayerTurn;
