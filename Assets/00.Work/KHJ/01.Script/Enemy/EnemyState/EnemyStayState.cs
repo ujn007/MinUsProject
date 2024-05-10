@@ -10,7 +10,6 @@ public class EnemyStayState : EnemyState
     public override void UpdateState()
     {
         base.UpdateState();
-        Debug.Log(enemy.canMoveEvent);
         if (enemy.canMoveEvent)
         {
             stateMachine.ChangeState(EnemyStateEnum.Move);
