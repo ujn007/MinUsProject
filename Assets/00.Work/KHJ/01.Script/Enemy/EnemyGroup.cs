@@ -1,17 +1,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public abstract class EnemyGroup : MonoBehaviour
+public abstract class EnemyGroup : MonoBehaviour  
 {
     [HideInInspector] public List<PlayerPieces> playerPieces = new List<PlayerPieces>();
+    [SerializeField] private GameObject enemyPath;
 
     protected EnemyManager enemMng => EnemyManager.Instance;
 
     public void Initialize()
     {
         playerPieces = FindObjectsOfType<PlayerPieces>().ToList();
-        enemMng.enemyList = FindObjectsOfType<Enemy>().ToList();    
+        enemMng.enemyList = FindObjectsOfType<Enemy>().ToList();
     }
 
     public bool SetMinEenemy(Enemy enemyBase)
@@ -50,5 +52,23 @@ public abstract class EnemyGroup : MonoBehaviour
         }
 
         return enemy;
+    }
+
+    public virtual void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float distance = Vector2.Distance(mousePos, transform.position);
+            Debug.Log($"{transform.name} : {distance} and {0.5f * TMananger.instance.tileScale}, bool : {distance < 0.5f * TMananger.instance.tileScale}");
+            if (distance < 0.5f * TMananger.instance.tileScale)
+            {
+                enemyPath.SetActive(true);
+            }
+            else
+            {
+                enemyPath.SetActive(false);
+            }
+        }
     }
 }

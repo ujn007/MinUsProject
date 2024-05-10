@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class EnemyStayState : EnemyState
@@ -7,8 +7,14 @@ public class EnemyStayState : EnemyState
     {
     }
 
-    public override void Enter()
+    public override void UpdateState()
     {
-        stateMachine.ChangeState(EnemyStateEnum.Move);
+        base.UpdateState();
+        Debug.Log(enemy.canMoveEvent);
+        if (enemy.canMoveEvent)
+        {
+            stateMachine.ChangeState(EnemyStateEnum.Move);
+            enemy.canMoveEvent = false;
+        }
     }
 }

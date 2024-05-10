@@ -52,7 +52,7 @@ public class Enemy : EnemyGroup
         canMoveEvent = true;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         playerPieces[0].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
         playerPieces[1].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
@@ -60,8 +60,9 @@ public class Enemy : EnemyGroup
         enemMng.enemyList.Remove(this);
     }
 
-    protected void Update()
+    public override void Update()
     {
+        base.Update();
         StateMachine.CurrentState.UpdateState();
     }
 

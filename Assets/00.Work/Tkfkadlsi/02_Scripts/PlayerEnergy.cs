@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerEnergy : MonoBehaviour
@@ -32,12 +33,13 @@ public class PlayerEnergy : MonoBehaviour
         energy += plusEnergy;
     }
 
-    public void MinusEnergy(int value)
+    public async void MinusEnergy(int value)
     {
         energy -= value;
 
         if(energy == 0)
         {
+            await Task.Delay(100);
             TMananger.instance.CurrnetState = GameState.EnemyTurn;
             PlayerTurnEnd?.Invoke();
         }

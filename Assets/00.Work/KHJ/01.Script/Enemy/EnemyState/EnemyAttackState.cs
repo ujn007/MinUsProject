@@ -26,10 +26,9 @@ public class EnemyAttackState : EnemyState
         Sequence sq = DOTween.Sequence();
         sq.Append(enemy.MoveTween((Vector2)moveState.moveToTrm.position, 0.1f)).OnComplete(() =>
         {
-            Debug.Log(moveState.moveToObj.name);
             if (moveState.moveToObj.TryGetComponent(out PlayerPieces player))
             {
-                Debug.Log("플레이어 찾아옴");
+                Debug.Log($"플레이어 찾아옴 : {player.name}");
                 player.HitPiece(1);
                 enemy.StartCoroutine(HitEffectCoroutine(player));
             }
@@ -39,7 +38,7 @@ public class EnemyAttackState : EnemyState
         {
             moveState.canMove = false;
             TMananger.instance.StartPlayerTurn();
-            stateMachine.ChangeState(EnemyStateEnum.Stay);
+            EnemyManager.Instance.enemyList.ForEach(enemy => enemy.StateMachine.ChangeState(EnemyStateEnum.Stay));
         });
     }
 
