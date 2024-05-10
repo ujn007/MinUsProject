@@ -124,10 +124,13 @@ public class TMananger : MonoBehaviour
         EnemyManager.Instance.SpawnEenemy();
     }
 
-    public void StartPlayerTurn()
+    public void StartPlayerTurn(bool isWaveSkip = false)
     {
-        Turn++;
-        GameUI.Instance.NextWave();
+        if(!isWaveSkip)
+        {
+            Turn++;
+            GameUI.Instance.NextWave();
+        }
         playerEnergy.TurnStart(1);
         CurrnetState = GameState.PlayerTurn;
     }
