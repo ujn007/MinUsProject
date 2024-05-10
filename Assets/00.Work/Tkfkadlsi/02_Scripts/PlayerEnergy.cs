@@ -38,6 +38,16 @@ public class PlayerEnergy : MonoBehaviour
 
         if(energy == 0)
         {
+            StartCoroutine(GoEnemyTurn());
+        }
+    }
+
+    private IEnumerator GoEnemyTurn()
+    {
+        yield return new WaitForSeconds(1);
+
+        if (energy == 0)
+        {
             TMananger.instance.CurrnetState = GameState.EnemyTurn;
             PlayerTurnEnd?.Invoke();
         }
