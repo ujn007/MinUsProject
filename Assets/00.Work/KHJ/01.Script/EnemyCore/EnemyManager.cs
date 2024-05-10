@@ -8,6 +8,9 @@ public struct EnemySpawnCount
     public int CrossAndXEnemy;
     public int CrossEnemy;
     public int HorseEnemy;
+    public int CrossAndXEnemyPlus;
+    public int CrossEnemyPlus;
+    public int HorseEnemyPlus;
 }
 
 public class EnemyManager : MonoSingleton<EnemyManager>
@@ -18,6 +21,7 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
     [Header("EnemySetting")]
     [SerializeField] private List<Transform> _enemyPF;
+    public int whenWavePlusCount;
     public EnemySpawnCount _enemySpawnCount;
 
     private List<Transform> _tileList;
@@ -33,14 +37,24 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
     private void Update()
     {
-        if (enemyList.Count <= 0 && GameUI.Instance.waveCount > 1)
+        if (enemyList.Count <= 0 && GameUI.Instance.waveCount >= 1)
         {
             GameUI.Instance.NextWave(true);
         }
     }
 
-    public void SpawnEenemy()
+    public void SpawnEenemy(bool s = false)
     {
+        if (GameUI.Instance.waveCount > 1)
+            _tileList = _tileParent.GetComponentsInChildren<Transform>().ToList();
+
+        if (s)
+        {
+            _enemySpawnCount.HorseEnemy += _enemySpawnCount.HorseEnemyPlus;
+            _enemySpawnCount.CrossEnemy += _enemySpawnCount.CrossEnemyPlus;
+            _enemySpawnCount.CrossAndXEnemy += _enemySpawnCount.CrossAndXEnemyPlus;
+        }
+
         for (int j = 0; j < _enemySpawnCount.CrossAndXEnemy; j++)
         {
             SpawnEnem(0);
@@ -61,7 +75,6 @@ public class EnemyManager : MonoSingleton<EnemyManager>
     {
         if (GameUI.Instance.waveCount > 1)
         {
-        _tileList = _tileParent.GetComponentsInChildren<Transform>().ToList();
             foreach (PlayerPieces player in playerPieces)
             {
                 Collider[] colliders = Physics.OverlapSphere(player.transform.position, 0.5f);
@@ -78,7 +91,6 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
         int randTrm = Random.Range(0, _tileList.Count);
         Transform enemy = Instantiate(_enemyPF[j], Vector3.zero, Quaternion.identity);
-        enemy.name = _enemyPF[j].name;
         enemy.position = _tileList[randTrm].transform.position + Vector3.forward;
 
         _tileList.RemoveAt(randTrm);

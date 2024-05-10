@@ -64,7 +64,7 @@ public class GameUI : MonoSingleton<GameUI>
         else
         {
             waveCount = ((waveCount - 1) / 5) * 5 + 6;
-            EnemyManager.Instance.SpawnEenemy();
+            EnemyManager.Instance.SpawnEenemy(true);
         }
 
         _wave.text = (waveCount).ToString() + " Wave";
