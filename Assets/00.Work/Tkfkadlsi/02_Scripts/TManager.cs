@@ -31,7 +31,7 @@ public class TMananger : MonoBehaviour
     [SerializeField] private Transform tilesParent;
     [SerializeField] private Color tileColor1;
     [SerializeField] private Color tileColor2;
-    [SerializeField] private List<GameObject> pieces = new List<GameObject>();
+    [SerializeField] public List<GameObject> pieces = new List<GameObject>();
     [SerializeField] private PlayerEnergy playerEnergy;
     [SerializeField] private GameUI gameUI;
     [SerializeField] private AudioSource SFXSource;
@@ -42,6 +42,7 @@ public class TMananger : MonoBehaviour
     public GameObject GetPiece(int id)
     {
         GameObject newPiece = Instantiate(pieces[id]);
+        EnemyManager.Instance.playerPieces.Add(newPiece.GetComponent<PlayerPieces>());
         newPiece.SetActive(false);
         return newPiece;
     }
@@ -50,12 +51,6 @@ public class TMananger : MonoBehaviour
     {
         instance = this;
         Init();
-    }
-
-    private void Start()
-    {
-        Information.instance.killCount = 0;
-        Information.instance.wave = 0;
     }
 
     private void Init()
@@ -131,9 +126,10 @@ public class TMananger : MonoBehaviour
     }
 
     public void StartPlayerTurn()
-    { 
+    {
         Turn++;
-        playerEnergy.TurnStart(3 + gameUI.GetWave() % 50);
+        GameUI.Instance.NextWave();
+        playerEnergy.TurnStart(10);
         CurrnetState = GameState.PlayerTurn;
     }
 
