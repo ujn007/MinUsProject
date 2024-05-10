@@ -33,7 +33,7 @@ public class PlayerEnergy : MonoBehaviour
         energy += plusEnergy;
     }
 
-    public async void MinusEnergy(int value)
+    public void MinusEnergy(int value)
     {
         energy -= value;
 
@@ -45,7 +45,7 @@ public class PlayerEnergy : MonoBehaviour
 
     private IEnumerator GoEnemyTurn()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
 
         if (energy == 0)
         {

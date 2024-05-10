@@ -29,17 +29,21 @@ public class EnemyAttackState : EnemyState
         {
             if (moveState.moveToObj.TryGetComponent(out PlayerPieces player))
             {
-                Debug.Log($"플레이어 찾아옴 : {player.name}");
                 player.HitPiece(1);
-                enemy.StartCoroutine(HitEffectCoroutine(player));
-            }
-        });
 
-        sq.Append(enemy.MoveTween(startPos, 0.5f, Ease.OutQuart)).OnComplete(() =>
-        {
-            moveState.canMove = false;
-            TMananger.instance.StartPlayerTurn();
-            EnemyManager.Instance.enemyList.ForEach(enemy => enemy.StateMachine.ChangeState(EnemyStateEnum.Stay));
+                if (player.GetHP() <= 0)
+                {
+                    EndAttack();
+                    return;
+                }
+
+                enemy.StartCoroutine(HitEffectCoroutine(player));
+
+                enemy.MoveTween(startPos, 0.5f, Ease.OutQuart).OnComplete(() =>
+                {
+                    EndAttack();
+                });
+            }
         });
     }
 
@@ -51,5 +55,12 @@ public class EnemyAttackState : EnemyState
         yield return new WaitForSeconds(0.1f);
 
         mat.SetColor("_EmissionColor", Color.black);
+    }
+
+    private void EndAttack()
+    {
+        moveState.canMove = false;
+        TMananger.instance.StartPlayerTurn();
+        EnemyManager.Instance.enemyList.ForEach(enemy => enemy.StateMachine.ChangeState(EnemyStateEnum.Stay));
     }
 }

@@ -31,7 +31,6 @@ public class EnemyMoveState : EnemyState
                 canMove = true;
                 enemy.CheckRoad(ref moveToTrm, ref moveToObj);
 
-                Debug.Log(moveToObj.name);
                 if (moveToObj.layer == 7) //7이 플레이어
                 {
                     stateMachine.ChangeState(EnemyStateEnum.Attack);
