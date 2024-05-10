@@ -45,6 +45,8 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
     public void SpawnEenemy(bool s = false)
     {
+        TMananger.instance.StartPlayerTurn();
+
         if (GameUI.Instance.waveCount > 1)
             _tileList = _tileParent.GetComponentsInChildren<Transform>().ToList();
 
