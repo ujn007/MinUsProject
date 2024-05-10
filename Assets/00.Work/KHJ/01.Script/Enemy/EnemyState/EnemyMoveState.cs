@@ -16,23 +16,37 @@ public class EnemyMoveState : EnemyState
     {
     }
 
+    public override void Enter()
+    {
+        canMove = true;
+        enemy.StartDelayCallback(0.5f, () => canMove = false);
+    }
+
     public override void UpdateState()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !canMove)
+        base.UpdateState();
+        Movement();
+    }
+
+    private void Movement()
+    {
+        if (enemy.canMoveEvent && !canMove)
         {
+            enemy.canMoveEvent = false;
             if (enemy.SetMinEenemy(enemy))
             {
                 enemy.CheckRoad(ref moveToTrm, ref moveToObj);
-                moveToTrm.position += Vector3.forward;
 
-                Debug.Log(moveToObj.layer);
+                Debug.Log(moveToObj.name);
                 if (moveToObj.layer == 7) //7이 플레이어
                 {
                     stateMachine.ChangeState(EnemyStateEnum.Attack);
                 }
                 else
                 {
-                    enemy.transform.DOMove(moveToTrm.position + Vector3.forward, 0.5f).OnComplete(() => canMove = false);
+                    enemy.transform.DOMove(moveToTrm.position + Vector3.forward, 0.5f);
+                    TMananger.instance.StartPlayerTurn();
+                    enemy.StateMachine.ChangeState(EnemyStateEnum.Stay);
                 }
             }
         }

@@ -28,8 +28,11 @@ public class Mimic : PlayerPieces
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (TMananger.instance.CurrnetState != GameState.PlayerTurn) return;
+
         if (collision.collider.CompareTag("Enemy"))
         {
+            Information.instance.killCount++;
             if (pieceLevel != maxLevel)
             {
                 pieceManager.PCLevel(1, this);
