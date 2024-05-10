@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -135,5 +136,18 @@ public class TMananger : MonoBehaviour
     public void MoveSFXPlay()
     {
         SFXSource.PlayOneShot(moveClip);
+    }
+
+    public void CheckPiece()
+    {
+        PlayerPieces[] playerPieces = FindObjectsOfType<PlayerPieces>();
+
+        foreach(PlayerPieces playerPiece in playerPieces)
+        {
+            if (playerPiece.gameObject.activeSelf)
+                return;
+        }
+
+        SceneManager.LoadScene("Fail");
     }
 }
