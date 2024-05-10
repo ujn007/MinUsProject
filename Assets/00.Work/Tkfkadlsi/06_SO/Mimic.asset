@@ -15,10 +15,10 @@ MonoBehaviour:
   movePoints:
   - {fileID: 3337581225252622559, guid: 96b78a3398663f14fb363b8bdb7e802d, type: 3}
   - {fileID: 3337581225252622559, guid: be2df9b8769a7b341b7a23410d8642ef, type: 3}
-  LevelUpCondition: 0100000001000000
+  LevelUpCondition: 0500000001000000
   visual:
   - {fileID: 21300000, guid: 77759151cebd8794caddc0d63f450508, type: 3}
   - {fileID: 1189320417, guid: c4cd42296e7f571409febe11d8ded4a3, type: 3}
   ConsumptionValue: 0100000001000000
-  Initial_Health: 4
+  Initial_Health: 6
   Increse_Helath: 2

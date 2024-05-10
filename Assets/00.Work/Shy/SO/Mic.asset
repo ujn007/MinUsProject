@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mic
   m_EditorClassIdentifier: 
   name: "\uBBF8\uBBF9"
-  life: 3
+  life: 6
   useValue: 1
   develop: "\uC5C6\uC74C"
   expain:

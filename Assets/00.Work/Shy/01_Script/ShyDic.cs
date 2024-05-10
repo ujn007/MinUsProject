@@ -38,6 +38,7 @@ public class ShyDic : MonoBehaviour
     {
         isDic = true;
         namePos.text = pc[page].name;
+        lifePos.text = "¸ñ¼û : " + pc[page].life;
         moveWayPos.sprite = pc[page].moveWay;
         visualPos.sprite = pc[page].visual;
         explainPos.text = "±× ¿Ü Æ¯Â¡" + explainSet();

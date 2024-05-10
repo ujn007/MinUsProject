@@ -126,9 +126,10 @@ public class TMananger : MonoBehaviour
     {
         Turn++;
         GameUI.Instance.NextWave();
-        playerEnergy.TurnStart(1);
+        playerEnergy.TurnStart(3 + Information.instance.wave / 25);
         CurrnetState = GameState.PlayerTurn;
     }
+
 
     public void MoveSFXPlay()
     {

@@ -79,7 +79,7 @@ public abstract class PlayerPieces : MonoBehaviour, IPointerClickHandler
     public virtual void MovePiece()
     {
         MovePointONOFF(true);
-        //TMananger.instance.MoveSFXPlay();
+        TMananger.instance.MoveSFXPlay();
         playerEnergy.MinusEnergy(SubEnergy);
         pieceManager.Setleadership(playerEnergy.GetEnergy());
     }

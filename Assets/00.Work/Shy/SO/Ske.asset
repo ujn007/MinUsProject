@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ske
   m_EditorClassIdentifier: 
   name: "\uD574\uACE8"
-  life: 3
-  useValue: 1
+  life: 6
+  useValue: 2
   develop: "\uC5C6\uC74C"
   expain:
   - "\uC7A0\uC744 \uB9CE\uC774 \uC7A1\uB2C8\uB2E4."

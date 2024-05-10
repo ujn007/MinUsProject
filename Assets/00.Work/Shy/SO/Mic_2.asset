@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Mic_2
   m_EditorClassIdentifier: 
   name: "\uBBF8\uBBF9 \uC2AC\uB77C\uC784"
-  life: 3
-  useValue: 2
-  develop: "\uBBF8\uBBF9 15\uD0AC"
+  life: 8
+  useValue: 1
+  develop: "\uBBF8\uBBF9 5\uD0AC"
   expain:
   - "\uC9DD\uC218 \uBC88\uC9F8\uC5D0\uB294 \uAD11\uC5ED\uC73C\uB85C \uB180\uB798\uD0B5\uB2C8\uB2E4."
   visual: {fileID: 1189320417, guid: c4cd42296e7f571409febe11d8ded4a3, type: 3}

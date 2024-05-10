@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Ske_2
   m_EditorClassIdentifier: 
   name: "\uB4C0\uB77C\uD55C"
-  life: 3
+  life: 8
   useValue: 2
-  develop: "\uD574\uACE8 15\uD0AC"
+  develop: "\uD574\uACE8 2\uD0AC"
   expain:
   - "\uC801\uC744 \uCC98\uCE58\uD558\uBA74 \uD589\uB3D9\uB825\uC744 \uD544\uC694\uB85C
     \uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."

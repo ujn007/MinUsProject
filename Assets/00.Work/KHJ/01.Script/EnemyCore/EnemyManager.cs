@@ -22,6 +22,7 @@ public class EnemyManager : MonoSingleton<EnemyManager>
     [Header("EnemySetting")]
     [SerializeField] private List<Transform> _enemyPF;
     public int whenWavePlusCount;
+
     public EnemySpawnCount _enemySpawnCount;
 
     private List<Transform> _tileList;
@@ -52,9 +53,9 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
         if (s)
         {
-            _enemySpawnCount.HorseEnemy += _enemySpawnCount.HorseEnemyPlus;
-            _enemySpawnCount.CrossEnemy += _enemySpawnCount.CrossEnemyPlus;
-            _enemySpawnCount.CrossAndXEnemy += _enemySpawnCount.CrossAndXEnemyPlus;
+            _enemySpawnCount.HorseEnemy += _enemySpawnCount.HorseEnemyPlus / 5;
+            _enemySpawnCount.CrossEnemy += _enemySpawnCount.CrossEnemyPlus % 8;
+            _enemySpawnCount.CrossAndXEnemy += _enemySpawnCount.CrossAndXEnemyPlus % 4;
         }
 
         for (int j = 0; j < _enemySpawnCount.CrossAndXEnemy; j++)

@@ -39,7 +39,7 @@ public class GameUI : MonoSingleton<GameUI>
     [SerializeField] public Image _spriteImage3;
 
     [Header("KHJSetting")]
-    [HideInInspector] public int waveCount = 0;
+    [HideInInspector] public int waveCount = -1;
 
     private void Awake()
     {
@@ -63,10 +63,11 @@ public class GameUI : MonoSingleton<GameUI>
         else
         {
             waveCount = ((waveCount - 1) / 5) * 5 + 6;
+
             EnemyManager.Instance.SpawnEenemy(true);
         }
 
-        _wave.text = (waveCount).ToString() + " Wave";
+        _wave.text = (waveCount).ToString() + " ¿œ";
         Information.instance.wave = waveCount;
     }
 
