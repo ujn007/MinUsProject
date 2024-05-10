@@ -3,22 +3,22 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public abstract class EnemyGroup : MonoBehaviour  
+public abstract class EnemyGroup : MonoBehaviour
 {
-    [HideInInspector] public List<PlayerPieces> playerPieces = new List<PlayerPieces>();
     [SerializeField] private GameObject enemyPath;
 
     protected EnemyManager enemMng => EnemyManager.Instance;
 
     public void Initialize()
     {
-        playerPieces = FindObjectsOfType<PlayerPieces>().ToList();
+        enemMng.playerPieces = FindObjectsOfType<PlayerPieces>().ToList();
         enemMng.enemyList = FindObjectsOfType<Enemy>().ToList();
+
     }
 
     public bool SetMinEenemy(Enemy enemyBase)
     {
-        if (enemyBase.name == CheckMinEnemy().name)
+        if (enemyBase.GetInstanceID() == CheckMinEnemy().GetInstanceID())
             return true;
         else
             return false;
@@ -26,20 +26,21 @@ public abstract class EnemyGroup : MonoBehaviour
 
     public Enemy CheckMinEnemy()
     {
+
         float mindis = float.MaxValue;
         int minHP = int.MaxValue;
         Enemy enemy = null;
 
-        for (int i = 0; i < playerPieces.Count; i++)
+        for (int i = 0; i < enemMng.playerPieces.Count; i++)
         {
             for (int j = 0; j < enemMng.enemyList.Count; j++)
             {
-                float dis = Vector2.Distance(playerPieces[i].transform.position, enemMng.enemyList[j].transform.position);
+                float dis = Vector2.Distance(enemMng.playerPieces[i].transform.position, enemMng.enemyList[j].transform.position);
                 if (dis <= mindis)
                 {
                     if (dis == mindis)
                     {
-                        if (minHP > playerPieces[i].GetHP())
+                        if (minHP > enemMng.playerPieces[i].GetHP())
                         {
                             enemy = enemMng.enemyList[j];
                             continue;
@@ -56,19 +57,18 @@ public abstract class EnemyGroup : MonoBehaviour
 
     public virtual void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(1))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float distance = Vector2.Distance(mousePos, transform.position);
-            Debug.Log($"{transform.name} : {distance} and {0.5f * TMananger.instance.tileScale}, bool : {distance < 0.5f * TMananger.instance.tileScale}");
             if (distance < 0.5f * TMananger.instance.tileScale)
             {
                 enemyPath.SetActive(true);
             }
-            else
-            {
-                enemyPath.SetActive(false);
-            }
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            enemyPath.SetActive(false);
         }
     }
 }

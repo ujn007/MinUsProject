@@ -23,7 +23,8 @@ public class EnemyManager : MonoSingleton<EnemyManager>
     private List<Transform> _tileList;
     public List<Transform> TileList => _tileList;
 
-    [HideInInspector] public List<Enemy> enemyList = new List<Enemy>();
+    [SerializeField] public List<Enemy> enemyList = new List<Enemy>();
+    [HideInInspector] public List<PlayerPieces> playerPieces = new List<PlayerPieces>();
 
     private void Start()
     {
@@ -58,6 +59,23 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
     private void SpawnEnem(int j)
     {
+        if (GameUI.Instance.waveCount > 1)
+        {
+        _tileList = _tileParent.GetComponentsInChildren<Transform>().ToList();
+            foreach (PlayerPieces player in playerPieces)
+            {
+                Collider[] colliders = Physics.OverlapSphere(player.transform.position, 0.5f);
+                foreach (Collider collider in colliders)
+                {
+                    Debug.Log(collider.gameObject.layer);
+                    if (collider.gameObject.layer == 6)
+                    {
+                        _tileList.Remove(collider.transform);
+                    }
+                }
+            }
+        }
+
         int randTrm = Random.Range(0, _tileList.Count);
         Transform enemy = Instantiate(_enemyPF[j], Vector3.zero, Quaternion.identity);
         enemy.name = _enemyPF[j].name;

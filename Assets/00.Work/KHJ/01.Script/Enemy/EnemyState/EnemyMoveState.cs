@@ -26,9 +26,9 @@ public class EnemyMoveState : EnemyState
     {
         if (!canMove)
         {
-            canMove = true;
             if (enemy.SetMinEenemy(enemy))
             {
+                canMove = true;
                 enemy.CheckRoad(ref moveToTrm, ref moveToObj);
 
                 Debug.Log(moveToObj.name);

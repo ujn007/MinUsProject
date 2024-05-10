@@ -57,7 +57,6 @@ public class GameUI : MonoSingleton<GameUI>
 
     public void NextWave(bool isEnemyDie = false)
     {
-        Debug.Log($"Wave ½ÇÇà : {isEnemyDie}");
         if (!isEnemyDie)
         {
             ++waveCount;

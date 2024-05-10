@@ -42,9 +42,9 @@ public class Enemy : EnemyGroup
         Initialize();   
         StateMachine.Initialize(EnemyStateEnum.Stay, this);
 
-        playerPieces[0].playerEnergy.PlayerTurnEnd += HandleEnemyTurnEvent;
-        playerPieces[1].playerEnergy.PlayerTurnEnd += HandleEnemyTurnEvent;
-        playerPieces[2].playerEnergy.PlayerTurnEnd += HandleEnemyTurnEvent;
+        enemMng.playerPieces[0].playerEnergy.PlayerTurnEnd += HandleEnemyTurnEvent;
+        enemMng.playerPieces[1].playerEnergy.PlayerTurnEnd += HandleEnemyTurnEvent;
+        enemMng.playerPieces[2].playerEnergy.PlayerTurnEnd += HandleEnemyTurnEvent;
     }
 
     private void HandleEnemyTurnEvent()
@@ -54,9 +54,9 @@ public class Enemy : EnemyGroup
 
     private void OnDestroy()
     {
-        playerPieces[0].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
-        playerPieces[1].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
-        playerPieces[2].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
+        enemMng.playerPieces[0].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
+        enemMng.playerPieces[1].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
+        enemMng.playerPieces[2].playerEnergy.PlayerTurnEnd -= HandleEnemyTurnEvent;
         enemMng.enemyList.Remove(this);
     }
 
@@ -110,7 +110,7 @@ public class Enemy : EnemyGroup
         Transform closestPlayer = null;
         float minDistance = float.MaxValue; // 최소 거리를 최대값으로 초기화
 
-        foreach (PlayerPieces player in playerPieces)
+        foreach (PlayerPieces player in enemMng.playerPieces)
         {
             float distance = Vector3.Distance(transform.position, player.transform.position);
             if (distance < minDistance)

@@ -662,6 +662,9 @@ MonoBehaviour:
   - {fileID: 7519671940468202681, guid: a1c85bb32b1e10a469e37d05440c714c, type: 3}
   - {fileID: 7519671940468202681, guid: b1add601d37cbfe4cb77ec5e6ae693f0, type: 3}
   playerEnergy: {fileID: 890380877}
+  gameUI: {fileID: 0}
+  SFXSource: {fileID: 0}
+  moveClip: {fileID: 0}
 --- !u!4 &258000040
 Transform:
   m_ObjectHideFlags: 0
@@ -3152,9 +3155,9 @@ MonoBehaviour:
   - {fileID: 7222209408794595907, guid: 1147f2f7c714c6f4bb711705dc886f63, type: 3}
   - {fileID: 1030367403444978792, guid: 0055c709d74df0e4eaf9e28871fa5d51, type: 3}
   _enemySpawnCount:
-    CrossAndXEnemy: 1
-    CrossEnemy: 1
-    HorseEnemy: 1
+    CrossAndXEnemy: 18
+    CrossEnemy: 0
+    HorseEnemy: 0
   enemyList: []
 --- !u!4 &1142285206
 Transform:
