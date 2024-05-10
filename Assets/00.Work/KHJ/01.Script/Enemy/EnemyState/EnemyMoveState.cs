@@ -18,21 +18,15 @@ public class EnemyMoveState : EnemyState
 
     public override void Enter()
     {
-        canMove = true;
-        enemy.StartDelayCallback(0.5f, () => canMove = false);
-    }
-
-    public override void UpdateState()
-    {
-        base.UpdateState();
-        Movement();
+        base.Enter();
+        enemy.StartDelayCallback(0.5f, () => Movement());
     }
 
     private void Movement()
     {
-        if (enemy.canMoveEvent && !canMove)
+        if (!canMove)
         {
-            enemy.canMoveEvent = false;
+            canMove = true;
             if (enemy.SetMinEenemy(enemy))
             {
                 enemy.CheckRoad(ref moveToTrm, ref moveToObj);
@@ -48,7 +42,8 @@ public class EnemyMoveState : EnemyState
                         .OnComplete(() =>
                         {
                             TMananger.instance.StartPlayerTurn();
-                            enemy.StateMachine.ChangeState(EnemyStateEnum.Stay);
+                            EnemyManager.Instance.enemyList.ForEach(enemy => enemy.StateMachine.ChangeState(EnemyStateEnum.Stay));
+                            canMove = false;
                         });
                 }
             }
